@@ -1,0 +1,55 @@
+<blockquote class="blockquote text-center">
+  <p class="mb-0">Greek Life Database</p>
+  <footer class="blockquote-footer">Kyle Boxeth, Jessica Kwok, Matthew Yoon</footer>
+</blockquote>
+<div class="mx-5 mt-3">
+  <ngb-tabset>
+    <ngb-tab title="Schemas">
+      <ng-template ngbTabContent>
+        <div class="mt-3">
+            <app-schemas></app-schemas>
+        </div>
+        <!--picture of diagram-->
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Chapter">
+      <ng-template ngbTabContent>
+        <div class="mt-3">
+            <app-chapter></app-chapter>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Member">
+      <ng-template ngbTabContent>
+        <div class="mt-3">
+            <app-member></app-member>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="House">
+      <ng-template ngbTabContent>
+        <div class="mt-3">
+          <div class="card-deck mx-3">
+            <app-house></app-house>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Philanthropy">
+      <ng-template ngbTabContent>
+        <div class="mt-3">
+          <app-philanthropy></app-philanthropy>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="New Member Class">
+      <ng-template ngbTabContent>
+        <div class="mt-3">
+          <div class="card-deck mx-3">
+            <app-new-member-class></app-new-member-class>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

@@ -1,0 +1,29 @@
+<p>Chapter(<u>ChapterName</u>, Fraternity/Sorority, ChapterFoundingDate, NationalFoundingDate,
+    NationalDesignation,
+    Dues)</p>
+<p>ChapterMember(<u>sid</u>, Name, Year, JoinDate, BadgeNumber, Major, GPA)
+</p>
+<p>ChapterHouse(<u>Address</u>, CampusLocation, MaxOccupancy, MealPlanService, AvailableInSummer)
+</p>
+<p>Philanthropy(<u>EventName</u>, <u>Date</u>, Cause, Partner, MoneyRaised, TicketPrice, TotalAttendance,
+    Budget,
+    Location)
+</p>
+<p>NewMemberClass(<u>JoinDate</u>, <u>ChapterName(FK)</u>, ClassSize, NumberOfDrops)
+</p>
+<p>LivesIn(<u>sid</u>, Address)
+</p>
+<p>HouseOf(<u>ChapterName</u>, Address)
+</p>
+<p>ServesAs(<u>sid</u>, <u>Position</u>, ChapterName, Term)
+</p>
+<p>Hosts(<u>EventName</u>, <u>Date</u>, <u>ChapterName</u>)
+</p>
+<p>MemberOf(<u>sid</u>, ChapterName)
+</p>
+<p>NewMemberOf(<u>sid</u>, ChapterName)
+</p>
+<p>NewMemberEducator(<u>sid</u>, JoinDate, ChapterName)
+</p>
+<p>ClassPresident(<u>sid</u>, JoinDate, ChapterName)
+</p>
