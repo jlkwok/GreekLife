@@ -3,8 +3,6 @@
     <p>Get</p>
     <div class="form-group col-md-auto">
         <select class="form-control form-control-sm">
-            <option>Event Name</option>
-            <option>Date</option>
             <option>Cause</option>
             <option>Partners</option>
             <option>Money Raised</option>
@@ -14,19 +12,37 @@
             <option>Location</option>
         </select>
     </div>
+    <p>of Philanthropy with the name</p>
+    <div class="col-md-auto">
+        <input type="text" class="form-control form-control-sm" required>
+    </div>
+    <p>and date</p>
+    <div class="col-md-auto">
+        <input type="date" class="form-control form-control-sm" required>
+    </div>
 </div>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Get Attribute Query</button>
 <p class="font-weight-bold">Get "Relationship" of "Philanthropy"</p>
 <div class="row mx-2">
     <p>Get</p>
     <div class="form-group col-md-auto">
         <select class="form-control form-control-sm">
-            <option>Hosts</option>
-            <option>Attends</option>
+            <option>Host(s)</option>
+            <option>Attendees</option>
         </select>
     </div>
+    <p>of Philanthropy with the name</p>
+    <div class="col-md-auto">
+        <input type="text" class="form-control form-control-sm" required>
+    </div>
+    <p>and date</p>
+    <div class="col-md-auto">
+        <input type="date" class="form-control form-control-sm" required>
+    </div>
 </div>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Get Relationship Query</button>
 <p class="font-weight-bold">Add a Philanthropy</p>
-<div class="row">
+<div class="row mb-3">
     <div class="col-md-auto">
         <label>Event Name</label>
         <input type="text" class="form-control form-control-sm" required>
@@ -64,3 +80,4 @@
         <input type="string" class="form-control form-control-sm" required>
     </div>
 </div>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Add Query</button>
