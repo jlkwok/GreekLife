@@ -12,6 +12,9 @@ public interface ChapterRepository extends CrudRepository<Chapter, Integer> {
 	@Query("SELECT c FROM Chapter c")
 	public List<Chapter> findAll();
 		
+	/***************************************************************
+	 * Basic Attribute queries: gets attributes of the given chapter	
+	 ***************************************************************/
 	@Query("SELECT c.governingBody FROM Chapter c WHERE c.chapterName=?1")
 	public GoverningBody getGoverningBody(String chapterName);
 	
@@ -26,4 +29,8 @@ public interface ChapterRepository extends CrudRepository<Chapter, Integer> {
 	
 	@Query("SELECT c.dues FROM Chapter c WHERE c.chapterName=?1")
 	public Double getDues(String chapterName);	
+	
+	/*****************************************************************************************
+	 * Relation Queries: Gets chapter data based off of relationships with other tables/schema
+	 *****************************************************************************************/	
 }
