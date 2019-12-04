@@ -14,9 +14,19 @@ export class ChapterComponent implements OnInit {
   ngOnInit() {
   }
 
-  getAttribute() {
+  attributeQuery() {
     let value = (<HTMLSelectElement>document.getElementById('attribute')).value;
     alert(value);
   }
+
+  relationshipQuery() {}
+
+  updateQuery() {}
+
+  addQuery() {}
+
+  propertyQuery() {}
+
+  livesInQuery() { }
 
 }
