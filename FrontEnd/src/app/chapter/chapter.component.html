@@ -2,9 +2,10 @@
 <div class="row mx-2">
     <p>Get</p>
     <div class="form-group col-md-auto">
-        <select class="form-control form-control-sm">
+        <select class="form-control form-control-sm" id="attribute">
             <option>Governing Body</option>
-            <option>Founding Date</option>
+            <option>Local Founding Date</option>
+            <option>National Founding Date</option>
             <option>Number of Members</option>
             <option>Average GPA</option>
             <option>Dues</option>
@@ -43,7 +44,7 @@
         </select>
     </div>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Get Attribute Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="getAttribute()">Submit Get Attribute Query</button>
 <p class="font-weight-bold">Get "Relationship" of "Chapter"</p>
 <div class="row mx-2">
     <p>Get</p>
