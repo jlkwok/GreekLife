@@ -2,15 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Chapter } from '../models/chapter';
-import { Member } from '../models/member';
-import { Philanthropy } from '../models/philanthropy';
-import { House } from '../models/house';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChapterService {
-  private chapterUrl = '';
+  private chapterUrl = 'http://localhost:8080/chapter/';
   
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,47 +15,31 @@ export class ChapterService {
 
   constructor(private http: HttpClient) { }
 
-  getGoverningBody(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterUrl}getGoverningBody?chapter=${chapter}`);
+  getGoverningBody(chapter: string): Observable<GoverningBody> {
+    return this.http.get<GoverningBody>(`${this.chapterUrl}governingBody/${chapter}`);
   }
 
   getLocalFoundingDate(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterUrl}getLocalFoundingDate?chapter=${chapter}`);
+    return this.http.get<string>(`${this.chapterUrl}localFoundingDate/${chapter}`);
   }
 
   getNationalFoundingDate(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterUrl}getNationalFoundingDate?chapter=${chapter}`);
+    return this.http.get<string>(`${this.chapterUrl}nationalFoundingDate/${chapter}`);
   }
 
-  getNumMembers(chapter: string): Observable<number> {
-    return this.http.get<number>(`${this.chapterUrl}getNumMembers?chapter=${chapter}`);
+  getNationalDesignation(chapter: string): Observable<number> {
+    return this.http.get<number>(`${this.chapterUrl}nationalDesignation/${chapter}`);
   }
-
-  getAvgGpa(chapter: string): Observable<number> {
-    return this.http.get<number>(`${this.chapterUrl}getAvgGpa?chapter=${chapter}`);
-  }  
 
   getDues(chapter: string): Observable<number> {
-    return this.http.get<number>(`${this.chapterUrl}getDues?chapter=${chapter}`);
+    return this.http.get<number>(`${this.chapterUrl}dues/${chapter}`);
   }
 
-  getMembers(chapter: string): Observable<Member[]> {
-    return this.http.get<Member[]>(`${this.chapterUrl}getMembers?chapter=${chapter}`);
+  getAllChapters(): Observable<Chapter[]> {
+    return this.http.get<Chapter[]>(`${this.chapterUrl}all`);
   }
 
-  getPhilanthropy(chapter: string): Observable<Philanthropy[]> {
-    return this.http.get<Philanthropy[]>(`${this.chapterUrl}getPhilanthropy?chapter=${chapter}`);
-  }
-
-  getHouse(chapter: string): Observable<House> {
-    return this.http.get<House>(`${this.chapterUrl}getHouse?chapter=${chapter}`);
-  }
-
-  getExecBoard(chapter: string): Observable<Member[]> {
-    return this.http.get<Member[]>(`${this.chapterUrl}getExecBoard?chapter=${chapter}`);
-  }
-
-  getAvgGpaThreshold(value: number): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>(`${this.chapterUrl}getAvgGpaThreshold?value=${value}`);
+  addNewChapter(chapter: Chapter): Observable<string> {
+    return this.http.post<string>(`${this.chapterUrl}add`, chapter, {responseType:'text' as 'json'});
   }
 }

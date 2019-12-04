@@ -1,9 +1,9 @@
 export class Chapter {
     name: string;
-    governingBody: string;
+    governingBody: GoverningBody;
     localFoundingDate: string;
     natFoundingDate: string;
-    natDesignation: string;
+    natDesignation: number;
     dues: number;
 
     constructor (name, governingBody, localFoundingDate, natFoundingDate, natDesignation, dues) {
