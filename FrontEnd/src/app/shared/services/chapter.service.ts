@@ -59,6 +59,10 @@ export class ChapterService {
     return this.http.get<Chapter[]>(`${this.chapterUrl}all`);
   }
 
+  updateDues(chapter: string, dues: number): Observable<string> {
+    return this.http.get<string>(`${this.chapterUrl}updateDues/${chapter}/${dues}`);
+  }
+
   addNewChapter(chapter: Chapter): Observable<string> {
     return this.http.post<string>(`${this.chapterUrl}add`, chapter, {responseType:'text' as 'json'});
   }

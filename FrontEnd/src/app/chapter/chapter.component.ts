@@ -64,7 +64,11 @@ export class ChapterComponent implements OnInit {
 
   relationshipQuery() { }
 
-  updateQuery() { }
+  updateQuery() {
+    let chapterName = (<HTMLSelectElement>document.getElementById('chapter4')).value;
+    let dues = parseInt((<HTMLSelectElement>document.getElementById('chapter4')).value);
+    this.chapterService.updateDues(chapterName, dues).subscribe(response => alert(response));
+   }
 
   addQuery() {
     let chapterName = (<HTMLSelectElement>document.getElementById('chapter3')).value;
