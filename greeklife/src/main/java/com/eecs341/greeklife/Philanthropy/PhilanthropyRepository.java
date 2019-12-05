@@ -38,7 +38,7 @@ public interface PhilanthropyRepository extends CrudRepository<Philanthropy, Phi
 	/**********************************************************************************************
 	 * Relation Queries: Gets Philanthropy data based off of relationships with other tables/schema
 	 **********************************************************************************************/	
-	@Query("SELECT c FROM Hosts h, Chapter c WHERE h.id.eventName=?1 AND h.id.date=?2 AND h.id.chapterName=c.chapterName")
-	public List<Chapter> getHostChapters(String eventName, String date);
+	@Query("SELECT c.chapterName FROM Hosts h, Chapter c WHERE h.id.eventName=?1 AND h.id.date=?2 AND h.id.chapterName=c.chapterName")
+	public List<String> getHostChapters(String eventName, String date);
 	
 }

@@ -65,18 +65,38 @@ public class ChapterController {
 		return chapterRepository.getMemberCount(chapterName);
 	}
 	
+	@GetMapping(path="/members/{chapterName}")
+	public @ResponseBody List<String> getMembers(@PathVariable("chapterName") String chapterName) {
+		return chapterRepository.getMembers(chapterName);
+	}
+
+	@GetMapping(path="/philanthropy/{chapterName}")
+	public @ResponseBody List<String> getPhilanthropy(@PathVariable("chapterName") String chapterName) {
+		return chapterRepository.getPhilanthropy(chapterName);
+	}
+	
+	@GetMapping(path="/house/{chapterName}")
+	public @ResponseBody String getHouse(@PathVariable("chapterName") String chapterName) {
+		return chapterRepository.getHouse(chapterName);
+	}
+	
+	@GetMapping(path="/exec/{chapterName}")
+	public @ResponseBody List<String> getExec(@PathVariable("chapterName") String chapterName) {
+		return chapterRepository.getExecBoard(chapterName);
+	}
+	
 	@GetMapping(path="/chaptersWithMinGpa/{gpa}")
-	public @ResponseBody List<Chapter> getChaptersWithMinGpa(@PathVariable("gpa") Double gpa) {
+	public @ResponseBody List<String> getChaptersWithMinGpa(@PathVariable("gpa") Double gpa) {
 		return chapterRepository.getChaptersWithMinGpa(gpa);
 	}
 	
 	@GetMapping(path="/chaptersWithAvgGpa/{gpa}")
-	public @ResponseBody List<Chapter> getChaptersWithAvgGpa(@PathVariable("gpa") Double gpa) {
+	public @ResponseBody List<String> getChaptersWithAvgGpa(@PathVariable("gpa") Double gpa) {
 		return chapterRepository.getChaptersWithAverageGpa(gpa);
 	}
 	
 	@GetMapping(path="/chaptersWithAllInHouse")
-	public @ResponseBody List<Chapter> getChaptersWithAllInHouse() {
+	public @ResponseBody List<String> getChaptersWithAllInHouse() {
 		return chapterRepository.getChaptersWithAllMembersInHouse();
 	}
 	
