@@ -50,6 +50,6 @@ export class HouseService {
   }
 
   addNewHouseOf(houseOf: HouseOf): Observable<string> {
-    return this.http.post<string>(`${this.houseUrl}add`, houseOf, {responseType:'text' as 'json'});
+    return this.http.post<string>(`${this.houseUrl}addHouseOf`, houseOf, {responseType:'text' as 'json'});
   }
 }
