@@ -28,7 +28,7 @@ export class PhilanthropyService {
   }
 
   getTicketPrice(eventName: string, eventDate: string): Observable<number> {
-    return this.http.get<number>(`${this.philUrl}TicketPrice/${eventName}/${eventDate}`);
+    return this.http.get<number>(`${this.philUrl}ticketPrice/${eventName}/${eventDate}`);
   }
 
   getTotalAttendance(eventName: string, eventDate: string): Observable<number> {
