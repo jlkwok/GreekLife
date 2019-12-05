@@ -1,5 +1,7 @@
 package com.eecs341.greeklife.Chapter;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,6 +47,31 @@ public class ChapterController {
 	@GetMapping(path="/dues/{chapterName}")
 	public @ResponseBody Double getDues(@PathVariable("chapterName") String chapterName) {
 		return chapterRepository.getDues(chapterName);
+	}
+	
+	@GetMapping(path="/avgGpa/{chapterName}")
+	public @ResponseBody Double getAvgGpa(@PathVariable("chapterName") String chapterName) {
+		return chapterRepository.getAverageGpa(chapterName);
+	}
+	
+	@GetMapping(path="/memberCount/{chapterName}")
+	public @ResponseBody Integer getMemberCount(@PathVariable("chapterName") String chapterName) {
+		return chapterRepository.getMemberCount(chapterName);
+	}
+	
+	@GetMapping(path="/chaptersWithMinGpa/{gpa}")
+	public @ResponseBody List<Chapter> getChaptersWithMinGpa(@PathVariable("gpa") Double gpa) {
+		return chapterRepository.getChaptersWithMinGpa(gpa);
+	}
+	
+	@GetMapping(path="/chaptersWithAvgGpa/{gpa}")
+	public @ResponseBody List<Chapter> getChaptersWithAvgGpa(@PathVariable("gpa") Double gpa) {
+		return chapterRepository.getChaptersWithAverageGpa(gpa);
+	}
+	
+	@GetMapping(path="/chaptersWithAllInHouse")
+	public @ResponseBody List<Chapter> getChaptersWithAllInHouse() {
+		return chapterRepository.getChaptersWithAllMembersInHouse();
 	}
 
 	@GetMapping(path="/all")
