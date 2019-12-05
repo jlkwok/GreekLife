@@ -45,10 +45,6 @@ export class MemberComponent implements OnInit {
         this.memberService.getGPA(sid).subscribe(gpa => alert(gpa));
         break;
       }
-      default: {
-        //statements; 
-        break;
-      }
     }
   }
 

@@ -59,10 +59,6 @@ export class ChapterComponent implements OnInit {
         this.chapterService.getDues(chapter).subscribe(dues => alert(dues));
         break;
       }
-      default: {
-        //statements; 
-        break;
-      }
     }
   }
 

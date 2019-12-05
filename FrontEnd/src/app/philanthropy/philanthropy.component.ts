@@ -51,10 +51,6 @@ export class PhilanthropyComponent implements OnInit {
         this.philService.getLocation(name, date).subscribe(location => alert(location));
         break;
       }
-      default: {
-        //statements; 
-        break;
-      }
     }
   }
 

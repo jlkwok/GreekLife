@@ -39,10 +39,6 @@ export class HouseComponent implements OnInit {
         this.houseService.isAvailableInSummer(chapter).subscribe(avail => alert(avail));
         break;
       }
-      default: {
-        //statements; 
-        break;
-      }
     }
   }
 
