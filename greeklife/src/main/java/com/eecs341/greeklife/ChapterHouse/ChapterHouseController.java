@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.eecs341.greeklife.ChapterMember.ChapterMember;
 import com.eecs341.greeklife.HouseOf.HouseOf;
 import com.eecs341.greeklife.HouseOf.HouseOfRepository;
 
+@CrossOrigin
 @Controller
 @RequestMapping(path="/chapterHouse")
 public class ChapterHouseController {
