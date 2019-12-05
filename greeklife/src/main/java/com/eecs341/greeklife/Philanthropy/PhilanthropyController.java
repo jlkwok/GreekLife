@@ -11,15 +11,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eecs341.greeklife.Hosts.Hosts;
+import com.eecs341.greeklife.Hosts.HostsRepository;
+
 @Controller
 @RequestMapping(path="/philanthropy")
 public class PhilanthropyController {
 	@Autowired
 	private PhilanthropyRepository philRepository;
+	
+	@Autowired
+	private HostsRepository hostsRepository;
 
 	@PostMapping(path="/add") // Map ONLY POST Requests
 	public @ResponseBody String addNewPhilanthropy (@RequestBody Philanthropy p) {
 		philRepository.save(p);
+		return "Saved";
+	}
+	
+	@PostMapping(path="/addHosts") // Map ONLY POST Requests
+	public @ResponseBody String addNewHosts (@RequestBody Hosts h) {
+		hostsRepository.save(h);
 		return "Saved";
 	}
 	
