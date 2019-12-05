@@ -58,4 +58,9 @@ export class HouseComponent implements OnInit {
     let houseOf: HouseOf = new HouseOf(chapter, address);
     this.houseService.addNewHouseOf(houseOf).subscribe(response => alert(response));
   }
+
+  getMemsLivingIn() {
+    let chapter = (<HTMLSelectElement>document.getElementById('chapter2')).value;
+    this.houseService.getMembersLivingIn(chapter).subscribe(response => alert(response));
+  }
 }

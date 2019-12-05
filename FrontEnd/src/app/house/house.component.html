@@ -49,7 +49,7 @@
 <div class="row mx-2">
     <p>Get Members Living in the</p>
     <div class="form-group col-md-auto">
-        <select class="form-control form-control-sm">
+        <select class="form-control form-control-sm" id="chapter2">
             <option>Beta Theta Pi</option>
             <option>Delta Chi</option>
             <option>Delta Sigma Phi</option>
@@ -81,7 +81,7 @@
     </div>
     <p>house</p>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Get Relationship Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="getMemsLivingIn()">Submit Get Relationship Query</button>
 <p class="font-weight-bold">Add a House</p>
 <div class="row mb-3">
     <div class="col-md-auto">
@@ -112,7 +112,7 @@
     </div>
 </div>
 <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addQuery()">Submit Add Query</button>
-<p class="font-weight-bold">Assign a House to a Chapter</p>
+<p class="font-weight-bold">Assign a "House" to a "Chapter"</p>
 <div class="row mb-3">
     <div class="col-md-auto">
         <label>Address</label>

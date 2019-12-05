@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { House } from '../models/house';
 import { HouseOf } from '../models/houseOf';
+import { Member } from '../models/member';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,10 @@ export class HouseService {
 
   isAvailableInSummer(chapter: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.houseUrl}summer/${chapter}`);
+  }
+
+  getMembersLivingIn(chapter: string): Observable<Member> {
+    return this.http.get<Member>(`${this.houseUrl}memberIn/${chapter}`);
   }
 
   getAllHouses(): Observable<House[]> {
