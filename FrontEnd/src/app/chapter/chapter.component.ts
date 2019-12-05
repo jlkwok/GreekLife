@@ -48,11 +48,11 @@ export class ChapterComponent implements OnInit {
         break;
       }
       case "Number of Members": {
-        this.chapterService.getMemberCount(chapter);
+        this.chapterService.getMemberCount(chapter).subscribe(response => alert(response));
         break;
       }
       case "Average GPA": {
-        this.chapterService.getAvgGpa(chapter);
+        this.chapterService.getAvgGpa(chapter).subscribe(response => alert(response));
         break;
       }
       case "Dues": {
