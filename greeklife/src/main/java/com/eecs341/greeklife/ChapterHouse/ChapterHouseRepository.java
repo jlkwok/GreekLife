@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import com.eecs341.greeklife.ChapterMember.ChapterMember;
+
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
@@ -33,4 +35,10 @@ public interface ChapterHouseRepository extends CrudRepository<ChapterHouse, Str
 	/************************************************************************************************
 	 * Relation Queries: Gets chapter house  data based off of relationships with other tables/schema
 	 ************************************************************************************************/	
+	@Query("SELECT m FROM ChapterMember m, LivesIn l WHERE l.chapterName=?1 AND l.sid=m.sid")
+	public List<ChapterMember> getMembersLivingIn(String chapterName);
+	
+	
+
+	
 }

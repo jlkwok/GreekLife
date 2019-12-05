@@ -23,6 +23,7 @@
     <div class="form-group col-md-auto">
         <select class="form-control form-control-sm">
             <option>Living Location</option>
+            <option>New Member</option>
             <option>Executive Positions</option>
         </select>
     </div>
@@ -127,16 +128,16 @@
 <div class="row">
     <div class="col-md-auto">
         <label>sid</label>
-        <input type="number" class="form-control form-control-sm" required id="sid6">
+        <input type="number" class="form-control form-control-sm" required>
     </div>
     <div class="col-md-auto">
         <label>Position</label>
-        <input type="text" class="form-control form-control-sm" required id="position">
+        <input type="text" class="form-control form-control-sm" required>
     </div>
     <div class="col-md-auto">
         <label>Chapter</label>
         <div class="form-group col-md-auto">
-            <select class="form-control form-control-sm" id="chapter3">
+            <select class="form-control form-control-sm">
                 <option>Beta Theta Pi</option>
                 <option>Delta Chi</option>
                 <option>Delta Sigma Phi</option>
@@ -169,10 +170,10 @@
     </div>
     <div class="col-md-auto">
         <label>Term</label>
-        <input type="number" class="form-control form-control-sm" required placeholder="2019-2020" id="academicYear2">
+        <input type="number" class="form-control form-control-sm" required placeholder="2019-2020">
     </div>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="executiveQuery()">Submit Assign Executive Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Assign Query</button>
 <p class="font-weight-bold">Set Living Location</p>
 <div class="row mb-3">
     <div class="col-md-auto">

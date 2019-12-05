@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eecs341.greeklife.Chapter.Chapter;
 import com.eecs341.greeklife.LivesIn.LivesIn;
 import com.eecs341.greeklife.LivesIn.LivesInRepository;
 import com.eecs341.greeklife.MemberOf.MemberOf;
@@ -95,6 +96,40 @@ public class ChapterMemberController {
 	@GetMapping(path="/gpa/{sid}")
 	public @ResponseBody Double getGPA(@PathVariable("sid") Integer sid) {
 		return chapterMemberRepository.getGPA(sid);
+	}
+	
+	@GetMapping(path="/livingLocation/{sid}")
+	public @ResponseBody Double getLivingLocation(@PathVariable("sid") Integer sid) {
+		return chapterMemberRepository.getLivingLocation(sid);
+	}
+	
+	@GetMapping(path="/execPositions/{sid}")
+	public @ResponseBody Double getExecPositions(@PathVariable("sid") Integer sid) {
+		return chapterMemberRepository.getExecPositions(sid);
+	}
+	
+	@GetMapping(path="updateName/{sid}/{updatedValue}")
+	public @ResponseBody String updateName(@PathVariable("chapterName") Integer sid, @PathVariable("updatedValue") String value) {
+		ChapterMember c = chapterMemberRepository.findById(sid).get();
+		c.setName(value);
+		chapterMemberRepository.save(c);
+		return "Member updated";
+	}
+	
+	@GetMapping(path="updateMajor/{sid}/{updatedValue}")
+	public @ResponseBody String updateMajor(@PathVariable("chapterName") Integer sid, @PathVariable("updatedValue") String value) {
+		ChapterMember c = chapterMemberRepository.findById(sid).get();
+		c.setMajor(value);
+		chapterMemberRepository.save(c);
+		return "Member updated";
+	}
+	
+	@GetMapping(path="updateGpa/{sid}/{updatedValue}")
+	public @ResponseBody String updateGpa(@PathVariable("chapterName") Integer sid, @PathVariable("updatedValue") Double value) {
+		ChapterMember c = chapterMemberRepository.findById(sid).get();
+		c.setGpa(value);
+		chapterMemberRepository.save(c);
+		return "Member updated";
 	}
 
 	@GetMapping(path="/all")

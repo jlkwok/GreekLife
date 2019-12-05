@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eecs341.greeklife.ChapterMember.ChapterMember;
 import com.eecs341.greeklife.HouseOf.HouseOf;
 import com.eecs341.greeklife.HouseOf.HouseOfRepository;
 
@@ -54,6 +55,11 @@ public class ChapterHouseController {
 	public @ResponseBody boolean isAvailableInSummer(@PathVariable("chapterName") String chapterName) {
 		return houseRepository.isAvailableInSummer(chapterName);
 	}
+	
+	@GetMapping(path="/membersIn/{chapterName}")
+	public @ResponseBody List<ChapterMember> getMembersLivingIn(@PathVariable("chapterName") String chapterName) {
+		return houseRepository.getMembersLivingIn(chapterName);
+	}
 
 	@GetMapping(path="/all")
 	public @ResponseBody List<ChapterHouse> getAllUsers() {
@@ -65,7 +71,4 @@ public class ChapterHouseController {
 		houseOfRepository.save(h);
 		return "Saved";
 	}
-	
-	
-
 }

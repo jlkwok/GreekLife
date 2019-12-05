@@ -1,6 +1,7 @@
 package com.eecs341.greeklife.Chapter;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,11 @@ public class ChapterController {
 		return "Saved";
 	}
 
+	@GetMapping(path="/{chapterName}")
+	public @ResponseBody Optional<Chapter> findById(@PathVariable("chapterName") String chapterName) {
+		return chapterRepository.findById(chapterName);
+	}
+	
 	@GetMapping(path="/governingBody/{chapterName}")
 	public @ResponseBody GoverningBody getGoverningBody(@PathVariable("chapterName") String chapterName) {
 		return chapterRepository.getGoverningBody(chapterName);
@@ -72,6 +78,14 @@ public class ChapterController {
 	@GetMapping(path="/chaptersWithAllInHouse")
 	public @ResponseBody List<Chapter> getChaptersWithAllInHouse() {
 		return chapterRepository.getChaptersWithAllMembersInHouse();
+	}
+	
+	@GetMapping(path="updateDues/{chapterName}/{updatedValue}")
+	public @ResponseBody String updateDues(@PathVariable("chapterName") String chapterName, @PathVariable("updatedValue") double value) {
+		Chapter c = chapterRepository.findById(chapterName).get();
+		c.setDues(value);
+		chapterRepository.save(c);
+		return "Chapter updated";
 	}
 
 	@GetMapping(path="/all")
