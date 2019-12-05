@@ -96,6 +96,16 @@ public class ChapterMemberController {
 	public @ResponseBody Double getGPA(@PathVariable("sid") Integer sid) {
 		return chapterMemberRepository.getGPA(sid);
 	}
+	
+	@GetMapping(path="/livingLocation/{sid}")
+	public @ResponseBody Double getLivingLocation(@PathVariable("sid") Integer sid) {
+		return chapterMemberRepository.getLivingLocation(sid);
+	}
+	
+	@GetMapping(path="/execPositions/{sid}")
+	public @ResponseBody Double getExecPositions(@PathVariable("sid") Integer sid) {
+		return chapterMemberRepository.getExecPositions(sid);
+	}
 
 	@GetMapping(path="/all")
 	public @ResponseBody Iterable<ChapterMember> getAll() {

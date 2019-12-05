@@ -35,6 +35,10 @@ public interface ChapterMemberRepository extends CrudRepository<ChapterMember, I
 
 	/*****************************************************************************************
 	 * Relation Queries: Gets chapter data based off of relationships with other tables/schema
-	 *****************************************************************************************/	
+	 *****************************************************************************************/
+	@Query("SELECT l FROM ChapterMember m, LivesIn l WHERE l.sid=m.sid AND m.sid=?1")
+	public Double getLivingLocation(Integer sid);
 	
+	@Query("SELECT s.position FROM ServesAs s WHERE s.sid=?1")
+	public Double getExecPositions(Integer sid);	
 }
