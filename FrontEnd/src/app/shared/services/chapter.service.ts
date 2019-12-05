@@ -10,7 +10,7 @@ export class ChapterService {
   private chapterUrl = 'http://localhost:8080/chapter/';
   
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Response-Type':'text'})
   };
 
   constructor(private http: HttpClient) { }
@@ -19,12 +19,12 @@ export class ChapterService {
     return this.http.get<GoverningBody>(`${this.chapterUrl}governingBody/${chapter}`);
   }
 
-  getLocalFoundingDate(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterUrl}localFoundingDate/${chapter}`);
+  getLocalFoundingDate(chapter: string) {
+    return this.http.get(`${this.chapterUrl}localFoundingDate/${chapter}`, {responseType: 'text'});
   }
 
-  getNationalFoundingDate(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterUrl}nationalFoundingDate/${chapter}`);
+  getNationalFoundingDate(chapter: string) {
+    return this.http.get(`${this.chapterUrl}nationalFoundingDate/${chapter}`, {responseType: 'text'});
   }
 
   getNationalDesignation(chapter: string): Observable<number> {
@@ -51,8 +51,8 @@ export class ChapterService {
     return this.http.get<string[]>(`${this.chapterUrl}philanthropy/${chapter}`);
   }
 
-  getHouse(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterUrl}house/${chapter}`);
+  getHouse(chapter: string) {
+    return this.http.get(`${this.chapterUrl}house/${chapter}`, {responseType: 'text'});
   }
 
   getExec(chapter: string): Observable<string[]> {
@@ -75,8 +75,8 @@ export class ChapterService {
     return this.http.get<string[]>(`${this.chapterUrl}all`);
   }
 
-  updateDues(chapter: string, dues: number): Observable<string> {
-    return this.http.get<string>(`${this.chapterUrl}updateDues/${chapter}/${dues}`);
+  updateDues(chapter: string, dues: number) {
+    return this.http.get(`${this.chapterUrl}updateDues/${chapter}/${dues}`, {responseType: 'text'});
   }
 
   addNewChapter(chapter: Chapter): Observable<string> {
