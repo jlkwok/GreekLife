@@ -23,6 +23,7 @@ public class ChapterController {
 
 	@PostMapping(path="/add") // Map ONLY POST Requests
 	public @ResponseBody String addNewChapter (@RequestBody Chapter c) {
+		c.setChapterName(c.getChapterName());
 		chapterRepository.save(c);
 		return "Saved";
 	}

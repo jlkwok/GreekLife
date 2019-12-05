@@ -96,7 +96,6 @@ export class ChapterComponent implements OnInit {
     let chapterName = (<HTMLSelectElement>document.getElementById('chapter3')).value;
     let governingBodyVal = (<HTMLSelectElement>document.getElementById('governingBody')).value;
     let governingBody = this.getGoverningBody(governingBodyVal);
-    alert(governingBody);
     let localFoundingDate = (<HTMLSelectElement>document.getElementById('locFoundingDate')).value;
     localFoundingDate = formatDate(localFoundingDate, this.format, this.locale);
     let natFoundingDate = (<HTMLSelectElement>document.getElementById('natFoundingDate')).value;

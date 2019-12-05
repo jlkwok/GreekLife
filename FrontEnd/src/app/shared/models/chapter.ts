@@ -1,5 +1,5 @@
 export class Chapter {
-    name: string;
+    chapterName: string;
     governingBody: GoverningBody;
     localFoundingDate: string;
     natFoundingDate: string;
@@ -7,7 +7,7 @@ export class Chapter {
     dues: number;
 
     constructor (name, governingBody, localFoundingDate, natFoundingDate, natDesignation, dues) {
-        this.name = name;
+        this.chapterName = name;
         this.governingBody = governingBody;
         this.localFoundingDate = localFoundingDate;
         this.natFoundingDate = natFoundingDate;
