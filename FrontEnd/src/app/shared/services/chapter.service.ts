@@ -35,6 +35,26 @@ export class ChapterService {
     return this.http.get<number>(`${this.chapterUrl}dues/${chapter}`);
   }
 
+  getAvgGpa(chapter: string): Observable<number> {
+    return this.http.get<number>(`${this.chapterUrl}avgGpa/${chapter}`);
+  }
+
+  getMemberCount(chapter: string): Observable<number> {
+    return this.http.get<number>(`${this.chapterUrl}memberCount/${chapter}`);
+  }
+
+  getChaptersWithMinGpa(gpa: number): Observable<Chapter[]> {
+    return this.http.get<Chapter[]>(`${this.chapterUrl}chaptersWithMinGpa/${gpa}`);
+  }
+
+  getChapterWithAvgGpa(gpa: number): Observable<Chapter[]> {
+    return this.http.get<Chapter[]>(`${this.chapterUrl}chaptersWithAvgGpa/${gpa}`);
+  }
+
+  getChaptersWithAllInHouse(): Observable<Chapter[]> {
+    return this.http.get<Chapter[]>(`${this.chapterUrl}chaptersWithAllInHouse`);
+  }
+
   getAllChapters(): Observable<Chapter[]> {
     return this.http.get<Chapter[]>(`${this.chapterUrl}all`);
   }

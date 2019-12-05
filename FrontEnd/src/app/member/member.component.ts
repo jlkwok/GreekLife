@@ -20,7 +20,7 @@ export class MemberComponent implements OnInit {
   attributeQuery() {
     let attribute = (<HTMLSelectElement>document.getElementById('attribute')).value;
     let sid = parseInt((<HTMLSelectElement>document.getElementById('sid1')).value);
-    switch (attribute) {
+    switch(attribute) {
       case "Name": {
         this.memberService.getName(sid).subscribe(name => alert(name));
         break;

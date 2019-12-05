@@ -22,7 +22,7 @@ export class PhilanthropyComponent implements OnInit {
     let name = (<HTMLSelectElement>document.getElementById('name1')).value;
     let date = (<HTMLSelectElement>document.getElementById('date1')).value;
     date = formatDate(date, this.format, this.locale);
-    switch (attribute) {
+    switch(attribute) {
       case "Cause": {
         this.philService.getCause(name, date).subscribe(cause => alert(cause));
         break;

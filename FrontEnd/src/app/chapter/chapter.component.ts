@@ -34,7 +34,7 @@ export class ChapterComponent implements OnInit {
     let attribute = (<HTMLSelectElement>document.getElementById('attribute')).value;
     let chapter = (<HTMLSelectElement>document.getElementById('chapter1')).value;
     chapter = chapter.split(' ').join('%20');
-    switch (attribute) {
+    switch(attribute) {
       case "Governing Body": {
         this.chapterService.getGoverningBody(chapter).subscribe(gb => alert(gb));
         break;
@@ -47,14 +47,14 @@ export class ChapterComponent implements OnInit {
         this.chapterService.getNationalFoundingDate(chapter).subscribe(date => alert(date));
         break;
       }
-      /*case "Number of Members": { 
-        this.chapterService.(chapter);
-        break; 
-     }
-      case "Average GPA": {
-        this.chapterService.get(chapter);
+      case "Number of Members": {
+        this.chapterService.getMemberCount(chapter);
         break;
-      }*/
+      }
+      case "Average GPA": {
+        this.chapterService.getAvgGpa(chapter);
+        break;
+      }
       case "Dues": {
         this.chapterService.getDues(chapter).subscribe(dues => alert(dues));
         break;
@@ -80,8 +80,21 @@ export class ChapterComponent implements OnInit {
     this.chapterService.addNewChapter(chapter).subscribe(response => alert(response));
   }
 
-  propertyQuery() { }
+  propertyQuery() {
+    let property = (<HTMLSelectElement>document.getElementById('property')).value;
+    let gpa = parseInt((<HTMLSelectElement>document.getElementById('gpa')).value);
+    switch(property) {
+      case "Average GPA": {
+        this.chapterService.getChapterWithAvgGpa(gpa).subscribe(chapters => alert(chapters));
+      }
+      case "Minimum GPA": {
+        this.chapterService.getChaptersWithMinGpa(gpa).subscribe(chapters => alert(chapters));
+      }
+    }
+  }
 
-  livesInQuery() { }
+  livesInQuery() { 
+    this.chapterService.getChaptersWithAllInHouse().subscribe(chapters => alert(chapters));
+  }
 
 }

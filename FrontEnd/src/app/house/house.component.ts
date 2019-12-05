@@ -18,7 +18,7 @@ export class HouseComponent implements OnInit {
   attributeQuery() {
     let attribute = (<HTMLSelectElement>document.getElementById('attribute')).value;
     let chapter = (<HTMLSelectElement>document.getElementById('chapter1')).value;
-    switch (attribute) {
+    switch(attribute) {
       case "Address": {
         this.houseService.getAddress(chapter).subscribe(address => alert(address));
         break;

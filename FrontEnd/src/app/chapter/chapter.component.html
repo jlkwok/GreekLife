@@ -90,25 +90,18 @@
     </div>
 </div>
 <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="relationshipQuery()">Submit Get Relationship Query</button>
-<p class="font-weight-bold">Get "Chapters" with Certain Properties</p>
+<p class="font-weight-bold">Get Chapters with "Certain GPA Properties"</p>
 <div class="row mx-2">
-    <p>Get chapters where </p>
+    <p>Get chapters with </p>
     <div class="form-group col-md-auto">
-        <select class="form-control form-control-sm" placeholder="place">
+        <select class="form-control form-control-sm" placeholder="place" id="property">
             <option>Average GPA</option>
             <option>Minimum GPA</option>
-            <option>Number of Members</option>
         </select>
     </div>
-    <p>is</p>
-    <div class="form-group col-md-auto">
-        <select class="form-control form-control-sm">
-            <option>Greater Than</option>
-            <option>Less Than</option>
-        </select>
-    </div>
+    <p>of</p>
     <div class="col-md-auto">
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="gpa">
     </div>
 </div>
 <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="propertyQuery()">Submit Property Query</button>
