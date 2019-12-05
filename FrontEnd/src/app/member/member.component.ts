@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ChapterMemberService } from '../shared/services/chapter-member.service';
 import { formatDate } from "@angular/common";
 import { Member } from '../shared/models/member';
+import { NewMemberOf } from '../shared/models/newMemberOf';
+import { MemberOf } from '../shared/models/memberOf';
+import { LivesIn } from '../shared/models/livesIn';
+import { LivesInId } from '../shared/models/livesInId';
+import { ServesAs } from '../shared/models/servesAs';
+import { ServesAsId } from '../shared/models/servesAsId';
 
 @Component({
   selector: 'app-member',
@@ -76,5 +82,38 @@ export class MemberComponent implements OnInit {
     let gpa = parseInt((<HTMLSelectElement>document.getElementById('gpa')).value);
     let member: Member = new Member(name, year, joinDate, badgeNum, major, gpa);
     this.memberService.addNewChapterMember(member).subscribe(response => alert(response));
+  }
+
+  addNewMemToChapt() {
+    let sid = parseInt((<HTMLSelectElement>document.getElementById('sid3')).value);
+    let chapter = (<HTMLSelectElement>document.getElementById('chapter1')).value;
+    let newMemberOf: NewMemberOf = new NewMemberOf(sid, chapter);
+    this.memberService.addNewMemberOf(newMemberOf).subscribe(response => alert(response));
+  }
+
+  addMemToChapt() {
+    let sid = parseInt((<HTMLSelectElement>document.getElementById('sid4')).value);
+    let chapter = (<HTMLSelectElement>document.getElementById('chapter2')).value;
+    let memberOf: MemberOf = new MemberOf(sid, chapter);
+    this.memberService.addMemberOf(memberOf).subscribe(response => alert(response));
+  }
+
+  livingLocationQuery() {
+    let sid = parseInt((<HTMLSelectElement>document.getElementById('sid5')).value);
+    let address = (<HTMLSelectElement>document.getElementById('address')).value;
+    let academicYear = (<HTMLSelectElement>document.getElementById('academicYear1')).value;
+    let livesInId: LivesInId = new LivesInId(sid, academicYear)
+    let livesIn: LivesIn = new LivesIn(livesInId, address);
+    this.memberService.addLivesIn(livesIn).subscribe(response => alert(response));
+  }
+
+  executiveQuery() {
+    let sid = parseInt((<HTMLSelectElement>document.getElementById('sid6')).value);
+    let position = (<HTMLSelectElement>document.getElementById('position')).value;
+    let chapter = (<HTMLSelectElement>document.getElementById('chapter3')).value;
+    let academicYear = (<HTMLSelectElement>document.getElementById('academicYear2')).value;
+    let servesAsId: ServesAsId = new ServesAsId(sid, position, academicYear, chapter);
+    let servesAs: ServesAs = new ServesAs(servesAsId);
+    this.memberService.addServesAs(servesAs).subscribe(response => alert(response));
   }
 }

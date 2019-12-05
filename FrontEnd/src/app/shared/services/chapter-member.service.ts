@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Member } from '../models/member';
+import { NewMemberOf } from '../models/newMemberOf';
+import { MemberOf } from '../models/memberOf';
+import { LivesIn } from '../models/livesIn';
+import { ServesAs } from '../models/servesAs';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +49,21 @@ export class ChapterMemberService {
 
   addNewChapterMember(chapterMem: Member): Observable<string> {
     return this.http.post<string>(`${this.chapterMemUrl}add`, chapterMem, {responseType:'text' as 'json'});
+  }
+
+  addNewMemberOf(newMemberOf: NewMemberOf): Observable<string> {
+    return this.http.post<string>(`${this.chapterMemUrl}addNewMemberOf`, newMemberOf, {responseType:'text' as 'json'});
+  }  
+
+  addMemberOf(memberOf: MemberOf): Observable<string> {
+    return this.http.post<string>(`${this.chapterMemUrl}addMemberOf`, memberOf, {responseType:'text' as 'json'});
+  }
+
+  addLivesIn(livesIn: LivesIn): Observable<string> {
+    return this.http.post<string>(`${this.chapterMemUrl}addLivesIn`, livesIn, {responseType:'text' as 'json'});
+  }
+
+  addServesAs(servesAs: ServesAs): Observable<string> {
+    return this.http.post<string>(`${this.chapterMemUrl}addServesAs`, servesAs, {responseType:'text' as 'json'});
   }
 }

@@ -23,7 +23,6 @@
     <div class="form-group col-md-auto">
         <select class="form-control form-control-sm">
             <option>Living Location</option>
-            <option>New Member</option>
             <option>Executive Positions</option>
         </select>
     </div>
@@ -66,20 +65,120 @@
     </div>
 </div>
 <button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addQuery()">Submit Add Query</button>
-<p class="font-weight-bold">Assign Executive Position</p>
+<p class="font-weight-bold">Add New Member with "sid" to "Chapter"</p>
 <div class="row">
     <div class="col-md-auto">
         <label>sid</label>
-        <input type="number" class="form-control form-control-sm" required>
-    </div>
-    <div class="col-md-auto">
-        <label>Position</label>
-        <input type="text" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="sid3">
     </div>
     <div class="col-md-auto">
         <label>Chapter</label>
         <div class="form-group col-md-auto">
-            <select class="form-control form-control-sm">
+            <select class="form-control form-control-sm" id="chapter1">
+                <option>Beta Theta Pi</option>
+                <option>Delta Chi</option>
+                <option>Delta Sigma Phi</option>
+                <option>Delta Tau Delta</option>
+                <option>Delta Upsilon</option>
+                <option>Phi Delta Theta</option>
+                <option>Phi Gamma Delta</option>
+                <option>Phi Kappa Theta</option>
+                <option>Phi Kappa Tau</option>
+                <option>Phi Kappa Psi</option>
+                <option>Pi Kappa Phi</option>
+                <option>Sigma Alpha Epsilon</option>
+                <option>Sigma Chi</option>
+                <option>Sigma Nu</option>
+                <option>Theta Chi</option>
+                <option>Zeta Beta Tau</option>
+                <option>Zeta Psi</option>
+                <option>Alpha Chi Omega</option>
+                <option>Alpha Gamma Delta</option>
+                <option>Alpha Phi</option>
+                <option>Delta Gamma</option>
+                <option>Kappa Alpha Theta</option>
+                <option>Phi Mu</option>
+                <option>Phi Sigma Rho</option>
+                <option>Pi Beta Phi</option>
+                <option>Sigma Psi</option>
+                <option>Sigma Sigma Sigma</option>
+            </select>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addNewMemToChapt()">Submit Add New Member to Chapter Query</button>
+<p class="font-weight-bold">Add Member with "sid" to "Chapter"</p>
+<div class="row">
+    <div class="col-md-auto">
+        <label>sid</label>
+        <input type="number" class="form-control form-control-sm" required id="sid4">
+    </div>
+    <div class="col-md-auto">
+        <label>Chapter</label>
+        <div class="form-group col-md-auto">
+            <select class="form-control form-control-sm" id="chapter2">
+                <option>Beta Theta Pi</option>
+                <option>Delta Chi</option>
+                <option>Delta Sigma Phi</option>
+                <option>Delta Tau Delta</option>
+                <option>Delta Upsilon</option>
+                <option>Phi Delta Theta</option>
+                <option>Phi Gamma Delta</option>
+                <option>Phi Kappa Theta</option>
+                <option>Phi Kappa Tau</option>
+                <option>Phi Kappa Psi</option>
+                <option>Pi Kappa Phi</option>
+                <option>Sigma Alpha Epsilon</option>
+                <option>Sigma Chi</option>
+                <option>Sigma Nu</option>
+                <option>Theta Chi</option>
+                <option>Zeta Beta Tau</option>
+                <option>Zeta Psi</option>
+                <option>Alpha Chi Omega</option>
+                <option>Alpha Gamma Delta</option>
+                <option>Alpha Phi</option>
+                <option>Delta Gamma</option>
+                <option>Kappa Alpha Theta</option>
+                <option>Phi Mu</option>
+                <option>Phi Sigma Rho</option>
+                <option>Pi Beta Phi</option>
+                <option>Sigma Psi</option>
+                <option>Sigma Sigma Sigma</option>
+            </select>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addMemToChapt()">Submit Add Member to Chapter Query</button>
+<p class="font-weight-bold">Set Living Location</p>
+<div class="row mb-3">
+    <div class="col-md-auto">
+        <label>sid</label>
+        <input type="number" class="form-control form-control-sm" required id="sid5">
+    </div>
+    <div class="col-md-auto">
+        <label>Address</label>
+        <input type="text" class="form-control form-control-sm" required placeholder="1234 Main Street" id="address">
+    </div>
+    <div class="col-md-auto">
+        <label>Year</label>
+        <input type="number" class="form-control form-control-sm" required placeholder="2019-2020" id="academicYear1">
+    </div>
+</div>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="livingLocationQuery()">Submit  Assign Living Location Query</button>
+<p class="font-weight-bold">Assign Executive Position</p>
+<div class="row">
+    <div class="col-md-auto">
+        <label>sid</label>
+        <input type="number" class="form-control form-control-sm" required id="sid6">
+    </div>
+    <div class="col-md-auto">
+        <label>Position</label>
+        <input type="text" class="form-control form-control-sm" required id="position">
+    </div>
+    <div class="col-md-auto">
+        <label>Chapter</label>
+        <div class="form-group col-md-auto">
+            <select class="form-control form-control-sm" id="chapter3">
                 <option>Beta Theta Pi</option>
                 <option>Delta Chi</option>
                 <option>Delta Sigma Phi</option>
@@ -112,10 +211,10 @@
     </div>
     <div class="col-md-auto">
         <label>Term</label>
-        <input type="number" class="form-control form-control-sm" required placeholder="2019-2020">
+        <input type="number" class="form-control form-control-sm" required placeholder="2019-2020" id="academicYear2">
     </div>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Assign Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="executiveQuery()">Submit Assign Executive Query</button>
 <p class="font-weight-bold">Set Living Location</p>
 <div class="row mb-3">
     <div class="col-md-auto">
