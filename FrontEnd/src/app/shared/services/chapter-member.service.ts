@@ -48,7 +48,7 @@ export class ChapterMemberService {
   }
 
   getExecPositions(sid: number): Observable<ServesAs[]> {
-    return this.http.get<ServesAs[]>(`${this.chapterMemUrl}execPositions/${sid}`);
+    return this.http.get<string[]>(`${this.chapterMemUrl}execPositions/${sid}`);
   }
 
   getAllChapterMembers(): Observable<Member[]> {
