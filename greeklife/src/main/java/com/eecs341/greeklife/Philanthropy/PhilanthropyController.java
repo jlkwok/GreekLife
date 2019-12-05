@@ -28,12 +28,15 @@ public class PhilanthropyController {
 
 	@PostMapping(path="/add") // Map ONLY POST Requests
 	public @ResponseBody String addNewPhilanthropy (@RequestBody Philanthropy p) {
+		
+		System.out.println(p.getId());
 		philRepository.save(p);
 		return "Saved";
 	}
 	
 	@PostMapping(path="/addHosts") // Map ONLY POST Requests
 	public @ResponseBody String addNewHosts (@RequestBody Hosts h) {
+		System.out.println(h.getId());
 		hostsRepository.save(h);
 		return "Saved";
 	}

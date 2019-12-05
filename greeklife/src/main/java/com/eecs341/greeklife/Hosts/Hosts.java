@@ -10,4 +10,20 @@ public class Hosts {
 
 	@EmbeddedId
 	private HostsId id;
+
+	/**
+	 * @return the id
+	 */
+	public HostsId getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(HostsId id) {
+		this.id = id;
+	}
+	
+	
 }

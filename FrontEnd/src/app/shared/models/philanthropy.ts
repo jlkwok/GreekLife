@@ -1,6 +1,7 @@
+import { PhilanthropyId } from './philanthropyId';
+
 export class Philanthropy {
-    eventName: string;
-    date: string;
+    id: PhilanthropyId;
     cause: string;
     partner: string;
     moneyRaised: number;
@@ -10,8 +11,7 @@ export class Philanthropy {
     location: string;
 
     constructor(eventName, date, cause, partner, moneyRaised, ticketPrice, totalAttendance, budget, location) {
-        this.eventName = eventName;
-        this.date = date;
+        this.id = new PhilanthropyId(eventName, date);
         this.cause = cause;
         this.partner = partner;
         this.moneyRaised = moneyRaised;
