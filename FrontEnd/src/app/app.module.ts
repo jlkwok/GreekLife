@@ -8,6 +8,7 @@ import { SchemasComponent } from './schemas/schemas.component';
 import { MemberComponent } from './member/member.component';
 import { HouseComponent } from './house/house.component';
 import { PhilanthropyComponent } from './philanthropy/philanthropy.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PhilanthropyComponent } from './philanthropy/philanthropy.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
