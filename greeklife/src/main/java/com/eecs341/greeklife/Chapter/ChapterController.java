@@ -48,7 +48,7 @@ public class ChapterController {
 	}
 
 	@GetMapping(path="/all")
-	public @ResponseBody Iterable<Chapter> getAllUsers() {
+	public @ResponseBody Iterable<Chapter> getAll() {
 		// This returns a JSON or XML with the users
 		return chapterRepository.findAll();
 	}
