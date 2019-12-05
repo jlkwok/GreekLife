@@ -65,6 +65,7 @@ export class ChapterComponent implements OnInit {
   relationshipQuery() {
     let relationship = (<HTMLSelectElement>document.getElementById('relationship')).value;
     let chapterName = (<HTMLSelectElement>document.getElementById('chapter2')).value;
+    chapterName = chapterName.split(' ').join('%20');
     switch (relationship) {
       case "Members": {
         this.chapterService.getMembers(chapterName).subscribe(response => alert(response));
@@ -111,9 +112,11 @@ export class ChapterComponent implements OnInit {
     switch (property) {
       case "Average GPA": {
         this.chapterService.getChapterWithAvgGpa(gpa).subscribe(chapters => alert(chapters));
+        break;
       }
       case "Minimum GPA": {
         this.chapterService.getChaptersWithMinGpa(gpa).subscribe(chapters => alert(chapters));
+        break;
       }
     }
   }
