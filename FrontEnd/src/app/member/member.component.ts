@@ -46,7 +46,7 @@ export class MemberComponent implements OnInit {
         this.memberService.getMajor(sid).subscribe(major => alert(major));
         break;
       }
-      case "Average GPA": {
+      case "GPA": {
         this.memberService.getGPA(sid).subscribe(gpa => alert(gpa));
         break;
       }
@@ -89,19 +89,19 @@ export class MemberComponent implements OnInit {
     }
   }
 
-  getStanding(year: string): Standing {
+  getStanding(year: string): number {
     switch(year) {
       case "Freshman": {
-        return Standing.FRESHMAN;
+        return 0;
       }
       case "Sophomore": {
-        return Standing.SOPHOMORE;
+        return 1;
       }
       case "Junior": {
-        return Standing.JUNIOR;
+        return 2;
       }
       case "Senior": {
-        return Standing.SENIOR;
+        return 3;
       }
     }
   }
