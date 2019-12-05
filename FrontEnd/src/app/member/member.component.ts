@@ -84,13 +84,6 @@ export class MemberComponent implements OnInit {
     this.memberService.addNewChapterMember(member).subscribe(response => alert(response));
   }
 
-  addNewMemToChapt() {
-    let sid = parseInt((<HTMLSelectElement>document.getElementById('sid3')).value);
-    let chapter = (<HTMLSelectElement>document.getElementById('chapter1')).value;
-    let newMemberOf: NewMemberOf = new NewMemberOf(sid, chapter);
-    this.memberService.addNewMemberOf(newMemberOf).subscribe(response => alert(response));
-  }
-
   addMemToChapt() {
     let sid = parseInt((<HTMLSelectElement>document.getElementById('sid4')).value);
     let chapter = (<HTMLSelectElement>document.getElementById('chapter2')).value;

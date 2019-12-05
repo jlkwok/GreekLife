@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { formatDate } from "@angular/common";
 import { PhilanthropyService } from '../shared/services/philanthropy.service';
 import { Philanthropy } from '../shared/models/philanthropy';
+import { HostsId } from '../shared/models/hostsId';
+import { Hosts } from '../shared/models/hosts';
 
 @Component({
   selector: 'app-philanthropy',
@@ -67,5 +69,15 @@ export class PhilanthropyComponent implements OnInit {
     let location = (<HTMLSelectElement>document.getElementById('location')).value;
     let philanthropy: Philanthropy = new Philanthropy(name, date, cause, partner, moneyRaised, ticketPrice, totAttendance, budget, location);
     this.philService.addNewPhilanthropy(philanthropy).subscribe(response => alert(response));
+  }
+
+  executiveQuery() {
+    let name = (<HTMLSelectElement>document.getElementById('name4')).value;
+    let chapter = (<HTMLSelectElement>document.getElementById('chapter4')).value;
+    let date = (<HTMLSelectElement>document.getElementById('date4')).value;
+    date = formatDate(date, this.format, this.locale);
+    let hostId: HostsId = new HostsId(name, date, chapter);
+    let host: Hosts = new Hosts(hostId);
+    this.philService.addNewHosts(host).subscribe(response => alert(response));
   }
 }

@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Philanthropy } from '../models/philanthropy';
+import { Hosts } from '../models/hosts';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +49,9 @@ export class PhilanthropyService {
 
   addNewPhilanthropy(philanthropy: Philanthropy): Observable<string> {
     return this.http.post<string>(`${this.philUrl}add`, philanthropy, {responseType:'text' as 'json'});
+  }
+
+  addNewHosts(hosts: Hosts): Observable<string> {
+    return this.http.post<string>(`${this.philUrl}addHosts`, hosts, {responseType:'text' as 'json'});
   }
 }

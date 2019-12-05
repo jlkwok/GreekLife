@@ -51,10 +51,6 @@ export class ChapterMemberService {
     return this.http.post<string>(`${this.chapterMemUrl}add`, chapterMem, {responseType:'text' as 'json'});
   }
 
-  addNewMemberOf(newMemberOf: NewMemberOf): Observable<string> {
-    return this.http.post<string>(`${this.chapterMemUrl}addNewMemberOf`, newMemberOf, {responseType:'text' as 'json'});
-  }  
-
   addMemberOf(memberOf: MemberOf): Observable<string> {
     return this.http.post<string>(`${this.chapterMemUrl}addMemberOf`, memberOf, {responseType:'text' as 'json'});
   }
