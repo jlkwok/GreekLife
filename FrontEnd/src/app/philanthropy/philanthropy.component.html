@@ -12,7 +12,7 @@
             <option>Location</option>
         </select>
     </div>
-    <p>of Philanthropy with the name</p>
+    <p>of Philanthropy with the event name</p>
     <div class="col-md-auto">
         <input type="text" class="form-control form-control-sm" required id="name1">
     </div>
@@ -31,7 +31,7 @@
             <option>Attendees</option>
         </select>
     </div>
-    <p>of Philanthropy with the name</p>
+    <p>of Philanthropy with the event name</p>
     <div class="col-md-auto">
         <input type="text" class="form-control form-control-sm" required>
     </div>
@@ -45,39 +45,39 @@
 <div class="row mb-3">
     <div class="col-md-auto">
         <label>Event Name</label>
-        <input type="text" class="form-control form-control-sm" required>
+        <input type="text" class="form-control form-control-sm" required id="name3">
     </div>
     <div class="col-md-auto">
         <label>Date</label>
-        <input type="date" class="form-control form-control-sm" required>
+        <input type="date" class="form-control form-control-sm" required id="date3">
     </div>
     <div class="col-md-auto">
         <label>Cause</label>
-        <input type="date" class="form-control form-control-sm" required>
+        <input type="date" class="form-control form-control-sm" required id="cause">
     </div>
     <div class="col-md-auto">
         <label>Partners</label>
-        <input type="date" class="form-control form-control-sm" required>
+        <input type="date" class="form-control form-control-sm" required id="partner">
     </div>
     <div class="col-md-auto">
         <label>Money Raised</label>
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="moneyRaised">
     </div>
     <div class="col-md-auto">
         <label>Ticket Price</label>
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="ticketPrice">
     </div>
     <div class="col-md-auto">
         <label>Total Attendance</label>
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="totAttendace">
     </div>
     <div class="col-md-auto">
         <label>Budget</label>
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="budget">
     </div>
     <div class="col-md-auto">
         <label>Location</label>
-        <input type="string" class="form-control form-control-sm" required>
+        <input type="string" class="form-control form-control-sm" required id="location">
     </div>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Add Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addQuery()">Submit Add Query</button>

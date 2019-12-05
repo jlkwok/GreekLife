@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChapterMemberService } from '../shared/services/chapter-member.service';
+import { formatDate } from "@angular/common";
+import { Member } from '../shared/models/member';
 
 @Component({
   selector: 'app-member',
@@ -7,6 +9,8 @@ import { ChapterMemberService } from '../shared/services/chapter-member.service'
   styleUrls: ['./member.component.css']
 })
 export class MemberComponent implements OnInit {
+  format = 'MM-dd-yyyy';
+  locale = 'en-US';
 
   constructor(private memberService: ChapterMemberService) { }
 
@@ -46,5 +50,35 @@ export class MemberComponent implements OnInit {
         break;
       }
     }
+  }
+
+  getStanding(year: string): Standing {
+    switch(year) {
+      case "Freshman": {
+        return Standing.FRESHMAN;
+      }
+      case "Sophomore": {
+        return Standing.SOPHOMORE;
+      }
+      case "Junior": {
+        return Standing.JUNIOR;
+      }
+      case "Senior": {
+        return Standing.SENIOR;
+      }
+    }
+  }
+
+  addQuery() {
+    let name = (<HTMLSelectElement>document.getElementById('name')).value;
+    let yearVal = (<HTMLSelectElement>document.getElementById('year')).value;
+    let year = this.getStanding(yearVal);
+    let joinDate = (<HTMLSelectElement>document.getElementById('joinDate')).value;
+    joinDate = formatDate(joinDate, this.format, this.locale);
+    let badgeNum = parseInt((<HTMLSelectElement>document.getElementById('badgeNum')).value);
+    let major = (<HTMLSelectElement>document.getElementById('major')).value;
+    let gpa = parseInt((<HTMLSelectElement>document.getElementById('gpa')).value);
+    let member: Member = new Member(name, year, joinDate, badgeNum, major, gpa);
+    this.memberService.addNewChapterMember(member).subscribe(response => alert(response));
   }
 }

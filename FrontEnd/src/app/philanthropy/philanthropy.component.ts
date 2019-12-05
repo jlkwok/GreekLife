@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { formatDate } from "@angular/common";
 import { PhilanthropyService } from '../shared/services/philanthropy.service';
+import { Philanthropy } from '../shared/models/philanthropy';
 
 @Component({
   selector: 'app-philanthropy',
@@ -20,6 +21,7 @@ export class PhilanthropyComponent implements OnInit {
     let attribute = (<HTMLSelectElement>document.getElementById('attribute')).value;
     let name = (<HTMLSelectElement>document.getElementById('name1')).value;
     let date = (<HTMLSelectElement>document.getElementById('date1')).value;
+    date = formatDate(date, this.format, this.locale);
     switch (attribute) {
       case "Cause": {
         this.philService.getCause(name, date).subscribe(cause => alert(cause));
@@ -56,4 +58,18 @@ export class PhilanthropyComponent implements OnInit {
     }
   }
 
+  addQuery() {
+    let name = (<HTMLSelectElement>document.getElementById('name3')).value;
+    let date = (<HTMLSelectElement>document.getElementById('date3')).value;
+    date = formatDate(date, this.format, this.locale);
+    let cause = (<HTMLSelectElement>document.getElementById('cause')).value;
+    let partner = (<HTMLSelectElement>document.getElementById('partner')).value;
+    let moneyRaised = parseInt((<HTMLSelectElement>document.getElementById('moneyRaised')).value);
+    let ticketPrice = parseInt((<HTMLSelectElement>document.getElementById('ticketPrice')).value);
+    let totAttendance = parseInt((<HTMLSelectElement>document.getElementById('totAttendance')).value);
+    let budget = parseInt((<HTMLSelectElement>document.getElementById('budget')).value);
+    let location = (<HTMLSelectElement>document.getElementById('location')).value;
+    let philanthropy: Philanthropy = new Philanthropy(name, date, cause, partner, moneyRaised, ticketPrice, totAttendance, budget, location);
+    this.philService.addNewPhilanthropy(philanthropy).subscribe(response => alert(response));
+  }
 }

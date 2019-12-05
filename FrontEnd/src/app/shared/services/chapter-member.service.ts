@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ChapterMember } from '../models/chapterMember';
 import { Observable } from 'rxjs';
+import { Member } from '../models/member';
 
 @Injectable({
   providedIn: 'root'
@@ -39,11 +39,11 @@ export class ChapterMemberService {
     return this.http.get<number>(`${this.chapterMemUrl}gpa/${sid}`);
   }
 
-  getAllChapterMembers(): Observable<ChapterMember[]> {
-    return this.http.get<ChapterMember[]>(`${this.chapterMemUrl}all`);
+  getAllChapterMembers(): Observable<Member[]> {
+    return this.http.get<Member[]>(`${this.chapterMemUrl}all`);
   }
 
-  addNewChapterMember(chapterMem: ChapterMember): Observable<string> {
+  addNewChapterMember(chapterMem: Member): Observable<string> {
     return this.http.post<string>(`${this.chapterMemUrl}add`, chapterMem, {responseType:'text' as 'json'});
   }
 }

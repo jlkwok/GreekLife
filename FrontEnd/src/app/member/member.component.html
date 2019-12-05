@@ -37,11 +37,11 @@
 <div class="row mb-3">
     <div class="col-md-auto">
         <label>Name</label>
-        <input type="text" class="form-control form-control-sm" required>
+        <input type="text" class="form-control form-control-sm" required id="name">
     </div>
     <div class="col-md-auto">
         <label>Year</label>
-        <select class="form-control form-control-sm">
+        <select class="form-control form-control-sm" id="year">
             <option>Freshman</option>
             <option>Sophomore</option>
             <option>Junior</option>
@@ -50,22 +50,22 @@
     </div>
     <div class="col-md-auto">
         <label>Join Date</label>
-        <input type="date" class="form-control form-control-sm" required>
+        <input type="date" class="form-control form-control-sm" required id="joinDate">
     </div>
     <div class="col-md-auto">
         <label>Badge Number</label>
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="badgeNum">
     </div>
     <div class="col-md-auto">
         <label>Major</label>
-        <input type="text" class="form-control form-control-sm" required>
+        <input type="text" class="form-control form-control-sm" required id="major">
     </div>
     <div class="col-md-auto">
         <label>GPA</label>
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="gpa">
     </div>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Add Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addQuery()">Submit Add Query</button>
 <p class="font-weight-bold">Assign Executive Position</p>
 <div class="row">
     <div class="col-md-auto">

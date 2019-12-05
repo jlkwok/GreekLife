@@ -86,32 +86,32 @@
 <div class="row mb-3">
     <div class="col-md-auto">
         <label>Address</label>
-        <input type="text" class="form-control form-control-sm" required placeholder="1234 Main St">
+        <input type="text" class="form-control form-control-sm" required placeholder="1234 Main St" id="address1">
     </div>
     <div class="col-md-auto">
         <label>Campus Location</label>
-        <select class="form-control form-control-sm">
+        <select class="form-control form-control-sm" id="location">
             <option>Northside</option>
             <option>Southside</option>
         </select>
     </div>
     <div class="col-md-auto">
         <label>Max Occupancy</label>
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="maxOcc">
     </div>
     <div class="col-md-auto">
         <label>Meal Plan Service</label>
-        <input type="text" class="form-control form-control-sm" required>
+        <input type="text" class="form-control form-control-sm" required id="mealPlanService">
     </div>
     <div class="col-md-auto">
         <label>Summer Housing</label>
-        <select class="form-control form-control-sm">
+        <select class="form-control form-control-sm" id="summer">
             <option>true</option>
             <option>false</option>
         </select>
     </div>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Add Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="addQuery()">Submit Add Query</button>
 <p class="font-weight-bold">Assign a House to a Chapter</p>
 <div class="row mb-3">
     <div class="col-md-auto">
@@ -119,6 +119,7 @@
         <input type="text" class="form-control form-control-sm" required placeholder="1234 Main St" id="address2">
     </div>
     <div class="form-group col-md-auto">
+        <label>Chapter</label>
         <select class="form-control form-control-sm" id="chapter3">
             <option>Beta Theta Pi</option>
             <option>Delta Chi</option>
