@@ -44,7 +44,7 @@ public class ChapterMemberController {
 	}
 	
 	@PostMapping(path="/addMemberOf") // Map ONLY POST Requests
-	public @ResponseBody String addNewMemberOf (@RequestBody MemberOf m) {
+	public @ResponseBody String addMemberOf (@RequestBody MemberOf m) {
 		memberOfRepository.save(m);
 		return "Saved";
 	}
