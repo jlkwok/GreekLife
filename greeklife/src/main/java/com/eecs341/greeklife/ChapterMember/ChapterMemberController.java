@@ -102,7 +102,7 @@ public class ChapterMemberController {
 	}
 	
 	@GetMapping(path="/livingLocation/{sid}")
-	public @ResponseBody ChapterHouse getLivingLocation(@PathVariable("sid") Integer sid) {
+	public @ResponseBody String getLivingLocation(@PathVariable("sid") Integer sid) {
 		return chapterMemberRepository.getLivingLocation(sid);
 	}
 	

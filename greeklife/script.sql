@@ -36,17 +36,20 @@ INSERT INTO greekLife.house_of (chapter_name, address) VALUES ('Alpha Gamma Delt
 
 INSERT INTO greekLife.chapter_member (badge_number, gpa, join_date, major, name, sid, year) VALUES (1444, 3.0, '9-1-2017', 'Computer Science', 'Kyle Boxeth', '1', 3);
 INSERT INTO greekLife.member_of (chapter_name, sid) VALUES ('Sigma Nu', 1);
+INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (1, 'New Member Educator', '2018-2019', 'Sigma Nu');
 INSERT INTO greekLife.chapter_member (badge_number, gpa, join_date, major, name, sid, year) VALUES (1445, 3.5, '9-1-2018', 'Computer Science', 'Matthew Yoon', '2', 2);
 INSERT INTO greekLife.member_of (chapter_name, sid) VALUES ('Sigma Nu', 2);
+INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (2, 'President', '2018-2019', 'Sigma Nu');
 INSERT INTO greekLife.chapter_member (badge_number, gpa, join_date, major, name, sid, year) VALUES (10, 4.0, '9-1-2018', 'Computer Science', 'Jessica Kwok', '3', 3);
 INSERT INTO greekLife.member_of (chapter_name, sid) VALUES ('Alpha Gamma Delta', 3);
+INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (3, 'President', '2018-2019', 'Alpha Gamma Delta');
 INSERT INTO greekLife.chapter_member (badge_number, gpa, join_date, major, name, sid, year) VALUES (1446, 3.25, '9-1-2018', 'Finance', 'Jason Shin', '4', 3);
 INSERT INTO greekLife.member_of (chapter_name, sid) VALUES ('Sigma Nu', 4);
+INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (4, 'Vice President', '2018-2019', 'Sigma Nu');
 INSERT INTO greekLife.chapter_member (badge_number, gpa, join_date, major, name, sid, year) VALUES (11, 3.7, '9-1-2018', 'Marketing', 'Louie Tran', '5', 3);
 INSERT INTO greekLife.member_of (chapter_name, sid) VALUES ('Alpha Gamma Delta', 5);
+INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (5, 'Vice President', '2018-2019', 'Alpha Gamma Delta');
 
-INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (1, 'New Member Educator', '2018-2019', 'Sigma Nu')
-INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (3, 'President', '2018-2019', 'Alpha Gamma Delta')
 
 INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('2235 Murray Hill Rd', '1', 1);
 INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('2235 Murray Hill Rd', '1', 2);
