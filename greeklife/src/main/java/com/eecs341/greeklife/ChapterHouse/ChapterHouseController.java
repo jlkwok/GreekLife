@@ -60,10 +60,12 @@ public class ChapterHouseController {
 		return houseRepository.findAll();
 	}
 	
-	@PostMapping(path="/addHouseOf ") // Map ONLY POST Requests
+	@PostMapping(path="/addHouseOf") // Map ONLY POST Requests
 	public @ResponseBody String addNewHouseOf (@RequestBody HouseOf h) {
 		houseOfRepository.save(h);
 		return "Saved";
 	}
+	
+	
 
 }

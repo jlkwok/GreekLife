@@ -9,8 +9,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eecs341.greeklife.LivesIn.LivesIn;
+import com.eecs341.greeklife.LivesIn.LivesInRepository;
 import com.eecs341.greeklife.MemberOf.MemberOf;
 import com.eecs341.greeklife.MemberOf.MemberOfRepository;
+import com.eecs341.greeklife.NewMemberOf.NewMemberOf;
+import com.eecs341.greeklife.NewMemberOf.NewMemberOfRepository;
+import com.eecs341.greeklife.ServesAs.ServesAs;
+import com.eecs341.greeklife.ServesAs.ServesAsRepository;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/chapterMember") // This means URL's start with /demo (after Application path)
@@ -22,6 +28,15 @@ public class ChapterMemberController {
 	@Autowired
 	private MemberOfRepository memberOfRepository;
 	
+	@Autowired
+	private NewMemberOfRepository newMemberOfRepository;
+	
+	@Autowired
+	private LivesInRepository livesInRepository;
+	
+	@Autowired
+	private ServesAsRepository servesAsRepository;
+	
 	@PostMapping(path="/add") // Map ONLY POST Requests
 	public @ResponseBody String addNewMember (@RequestBody ChapterMember m) {
 		chapterMemberRepository.save(m);
@@ -31,6 +46,24 @@ public class ChapterMemberController {
 	@PostMapping(path="/addMemberOf") // Map ONLY POST Requests
 	public @ResponseBody String addNewMemberOf (@RequestBody MemberOf m) {
 		memberOfRepository.save(m);
+		return "Saved";
+	}
+	
+	@PostMapping(path="/addNewMemberOf") // Map ONLY POST Requests
+	public @ResponseBody String addNewMemberOf (@RequestBody NewMemberOf m) {
+		newMemberOfRepository.save(m);
+		return "Saved";
+	}
+	
+	@PostMapping(path="/addLivesIn") // Map ONLY POST Requests
+	public @ResponseBody String addNewLivesIn (@RequestBody LivesIn l) {
+		livesInRepository.save(l);
+		return "Saved";
+	}
+
+	@PostMapping(path="/addServesAs") // Map ONLY POST Requests
+	public @ResponseBody String addNewServesAs(@RequestBody ServesAs s) {
+		servesAsRepository.save(s);
 		return "Saved";
 	}
 
@@ -68,7 +101,4 @@ public class ChapterMemberController {
 	public @ResponseBody Iterable<ChapterMember> getAll() {
 		return chapterMemberRepository.findAll();
 	}
-	
-	
-
 }
