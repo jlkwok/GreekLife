@@ -1,5 +1,7 @@
 package com.eecs341.greeklife.ChapterMember;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.eecs341.greeklife.Chapter.Chapter;
+import com.eecs341.greeklife.ChapterHouse.ChapterHouse;
 import com.eecs341.greeklife.LivesIn.LivesIn;
 import com.eecs341.greeklife.LivesIn.LivesInRepository;
 import com.eecs341.greeklife.MemberOf.MemberOf;
@@ -99,12 +102,12 @@ public class ChapterMemberController {
 	}
 	
 	@GetMapping(path="/livingLocation/{sid}")
-	public @ResponseBody Double getLivingLocation(@PathVariable("sid") Integer sid) {
+	public @ResponseBody ChapterHouse getLivingLocation(@PathVariable("sid") Integer sid) {
 		return chapterMemberRepository.getLivingLocation(sid);
 	}
 	
 	@GetMapping(path="/execPositions/{sid}")
-	public @ResponseBody Double getExecPositions(@PathVariable("sid") Integer sid) {
+	public @ResponseBody List<ServesAs> getExecPositions(@PathVariable("sid") Integer sid) {
 		return chapterMemberRepository.getExecPositions(sid);
 	}
 	

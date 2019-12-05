@@ -32,7 +32,7 @@ public class MemberOf {
 	/**
 	 * @return the chapter
 	 */
-	public String getChapter() {
+	public String getChapterName() {
 		return chapterName;
 	}
 

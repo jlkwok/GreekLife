@@ -47,7 +47,7 @@ public interface ChapterRepository extends CrudRepository<Chapter, String> {
 	@Query("SELECT p FROM Chapter c, Hosts h, Philanthropy p WHERE p.id.eventName=h.id.eventName AND p.id.date=h.id.date AND h.id.chapterName=c.chapterName and c.chapterName=?1")
 	public List<Philanthropy> getPhilanthropy(String chapterName);	
 	
-	@Query("SELECT m FROM Chapter c, ServesAs s, ChapterMember m WHERE m.sid=s.id.sid AND s.id.chapterName=c.chapterName and c.chapterName=?1")
+	@Query("SELECT m FROM Chapter c, ServesAs s, ChapterMember m WHERE m.sid=s.id.sid AND s.chapterName=c.chapterName and c.chapterName=?1")
 	public List<ChapterMember> getExecBoard(String chapterName);
 	
 	/***********************************************************************

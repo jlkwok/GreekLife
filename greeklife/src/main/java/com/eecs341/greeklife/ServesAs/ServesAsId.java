@@ -17,15 +17,11 @@ public class ServesAsId implements Serializable{
 	@Column(name="term")
 	private String term;
 	
-	@Column(name="chapterName")
-	private String chapterName;
-
-	public ServesAsId(Integer sid, String position, String term, String chapterName) {
+	public ServesAsId(Integer sid, String position, String term) {
 		super();
 		this.sid = sid;
 		this.position = position;
 		this.term = term;
-		this.chapterName = chapterName;
 	}
 	
 	public ServesAsId() {
@@ -33,7 +29,6 @@ public class ServesAsId implements Serializable{
 		this.sid = null;
 		this.position = null;
 		this.term = null;
-		this.chapterName = null;
 	}
 
 	/**
@@ -78,25 +73,11 @@ public class ServesAsId implements Serializable{
 		this.term = term;
 	}
 	
-	/**
-	 * @return the term
-	 */
-	public String getChapterName() {
-		return chapterName;
-	}
-
-	/**
-	 * @param term the term to set
-	 */
-	public void setChapterName(String chapterName) {
-		this.chapterName = chapterName;
-	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((chapterName == null) ? 0 : chapterName.hashCode());
 		result = prime * result + ((position == null) ? 0 : position.hashCode());
 		result = prime * result + ((sid == null) ? 0 : sid.hashCode());
 		result = prime * result + ((term == null) ? 0 : term.hashCode());
@@ -112,11 +93,6 @@ public class ServesAsId implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		ServesAsId other = (ServesAsId) obj;
-		if (chapterName == null) {
-			if (other.chapterName != null)
-				return false;
-		} else if (!chapterName.equals(other.chapterName))
-			return false;
 		if (position == null) {
 			if (other.position != null)
 				return false;
