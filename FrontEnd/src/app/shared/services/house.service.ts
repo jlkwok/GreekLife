@@ -37,7 +37,7 @@ export class HouseService {
     return this.http.get<boolean>(`${this.houseUrl}summer/${chapter}`);
   }
 
-  getMembersLivingIn(chapter: string): Observable<Member> {
+  getMembersLivingIn(chapter: string): Observable<string[]> {
     return this.http.get<string[]>(`${this.houseUrl}memberIn/${chapter}`);
   }
 

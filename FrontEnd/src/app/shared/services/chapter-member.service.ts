@@ -47,7 +47,7 @@ export class ChapterMemberService {
     return this.http.get<string>(`${this.chapterMemUrl}livingLocation/${sid}`);
   }
 
-  getExecPositions(sid: number): Observable<ServesAs[]> {
+  getExecPositions(sid: number): Observable<string[]> {
     return this.http.get<string[]>(`${this.chapterMemUrl}execPositions/${sid}`);
   }
 
