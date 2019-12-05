@@ -20,7 +20,7 @@ export class ChapterComponent implements OnInit {
   }
 
   getGoverningBody(gb: string): GoverningBody {
-    switch(gb) {
+    switch (gb) {
       case "Interfraternity Congress": {
         return GoverningBody.INTERFRATERNITY_CONGRESS;
       }
@@ -34,7 +34,7 @@ export class ChapterComponent implements OnInit {
     let attribute = (<HTMLSelectElement>document.getElementById('attribute')).value;
     let chapter = (<HTMLSelectElement>document.getElementById('chapter1')).value;
     chapter = chapter.split(' ').join('%20');
-    switch(attribute) {
+    switch (attribute) {
       case "Governing Body": {
         this.chapterService.getGoverningBody(chapter).subscribe(gb => alert(gb));
         break;
@@ -62,13 +62,30 @@ export class ChapterComponent implements OnInit {
     }
   }
 
-  relationshipQuery() { }
+  relationshipQuery() {
+    let relationship = (<HTMLSelectElement>document.getElementById('relationship')).value;
+    let chapterName = (<HTMLSelectElement>document.getElementById('chapter2')).value;
+    switch (relationship) {
+      case "Members": {
+        this.chapterService.getMembers(chapterName).subscribe(response => alert(response));
+      }
+      case "Philanthropy": {
+        this.chapterService.getPhilanthropy(chapterName).subscribe(response => alert(response));
+      }
+      case "House": {
+        this.chapterService.getHouse(chapterName).subscribe(response => alert(response));
+      }
+      case "Executive Board": {
+        this.chapterService.getExec(chapterName).subscribe(response => alert(response));
+      }
+    }
+  }
 
   updateQuery() {
     let chapterName = (<HTMLSelectElement>document.getElementById('chapter4')).value;
-    let dues = parseInt((<HTMLSelectElement>document.getElementById('chapter4')).value);
+    let dues = parseInt((<HTMLSelectElement>document.getElementById('dues')).value);
     this.chapterService.updateDues(chapterName, dues).subscribe(response => alert(response));
-   }
+  }
 
   addQuery() {
     let chapterName = (<HTMLSelectElement>document.getElementById('chapter3')).value;
@@ -87,7 +104,7 @@ export class ChapterComponent implements OnInit {
   propertyQuery() {
     let property = (<HTMLSelectElement>document.getElementById('property')).value;
     let gpa = parseInt((<HTMLSelectElement>document.getElementById('gpa')).value);
-    switch(property) {
+    switch (property) {
       case "Average GPA": {
         this.chapterService.getChapterWithAvgGpa(gpa).subscribe(chapters => alert(chapters));
       }
@@ -97,7 +114,7 @@ export class ChapterComponent implements OnInit {
     }
   }
 
-  livesInQuery() { 
+  livesInQuery() {
     this.chapterService.getChaptersWithAllInHouse().subscribe(chapters => alert(chapters));
   }
 

@@ -43,20 +43,36 @@ export class ChapterService {
     return this.http.get<number>(`${this.chapterUrl}memberCount/${chapter}`);
   }
 
-  getChaptersWithMinGpa(gpa: number): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>(`${this.chapterUrl}chaptersWithMinGpa/${gpa}`);
+  getMembers(chapter: string): Observable<string[]> {
+    return this.http.get<string[]>(`${this.chapterUrl}members/${chapter}`);
   }
 
-  getChapterWithAvgGpa(gpa: number): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>(`${this.chapterUrl}chaptersWithAvgGpa/${gpa}`);
+  getPhilanthropy(chapter: string): Observable<string[]> {
+    return this.http.get<string[]>(`${this.chapterUrl}philanthropy/${chapter}`);
   }
 
-  getChaptersWithAllInHouse(): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>(`${this.chapterUrl}chaptersWithAllInHouse`);
+  getHouse(chapter: string): Observable<string> {
+    return this.http.get<string>(`${this.chapterUrl}house/${chapter}`);
   }
 
-  getAllChapters(): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>(`${this.chapterUrl}all`);
+  getExec(chapter: string): Observable<string[]> {
+    return this.http.get<string[]>(`${this.chapterUrl}exec/${chapter}`);
+  }
+
+  getChaptersWithMinGpa(gpa: number): Observable<string[]> {
+    return this.http.get<string[]>(`${this.chapterUrl}chaptersWithMinGpa/${gpa}`);
+  }
+
+  getChapterWithAvgGpa(gpa: number): Observable<string[]> {
+    return this.http.get<string[]>(`${this.chapterUrl}chaptersWithAvgGpa/${gpa}`);
+  }
+
+  getChaptersWithAllInHouse(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.chapterUrl}chaptersWithAllInHouse`);
+  }
+
+  getAllChapters(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.chapterUrl}all`);
   }
 
   updateDues(chapter: string, dues: number): Observable<string> {
