@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eecs341.greeklife.Chapter.Chapter;
 import com.eecs341.greeklife.Hosts.Hosts;
 import com.eecs341.greeklife.Hosts.HostsRepository;
 
@@ -73,5 +74,10 @@ public class PhilanthropyController {
 	@GetMapping(path="/location/{eventName}/{eventDate}")
 	public @ResponseBody String getLocation(@PathVariable("eventName") String eventName, @PathVariable("eventDate") String eventDate) {
 		return philRepository.getLocation(eventName, eventDate);
+	}
+	
+	@GetMapping(path="/hostChapters/{eventName}/{eventDate}")
+	public @ResponseBody List<Chapter> getHostChapters(@PathVariable("eventName") String eventName, @PathVariable("eventDate") String eventDate) {
+		return philRepository.getHostChapters(eventName, eventDate);
 	}
 }

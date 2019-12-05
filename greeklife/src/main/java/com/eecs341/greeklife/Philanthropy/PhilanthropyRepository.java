@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import com.eecs341.greeklife.Chapter.Chapter;
+
 public interface PhilanthropyRepository extends CrudRepository<Philanthropy, PhilanthropyId> {
 	@Query("SELECT p FROM Philanthropy p")
 	public List<Philanthropy> findAll();
@@ -33,7 +35,10 @@ public interface PhilanthropyRepository extends CrudRepository<Philanthropy, Phi
 	@Query("SELECT p.location FROM Philanthropy p WHERE p.id.eventName=?1 AND p.id.date=?2")
 	public String getLocation(String eventName, String date);
 		
-	/*****************************************************************************************
+	/**********************************************************************************************
 	 * Relation Queries: Gets Philanthropy data based off of relationships with other tables/schema
-	 *****************************************************************************************/	
+	 **********************************************************************************************/	
+	@Query("SELECT c FROM Hosts h, Chapter c WHERE h.id.eventName=?1 AND h.id.date=?2 AND h.id.chapterName=c.chapterName")
+	public List<Chapter> getHostChapters(String eventName, String date);
+	
 }
