@@ -43,7 +43,7 @@ public class PhilanthropyController {
 		return philRepository.getMoneyRaised(eventName, eventDate);
 	}
 	
-	@GetMapping(path="/TicketPrice/{eventName}/{eventDate}")
+	@GetMapping(path="/ticketPrice/{eventName}/{eventDate}")
 	public @ResponseBody Double getTicketPrice(@PathVariable("eventName") String eventName, @PathVariable("eventDate") String eventDate) {
 		return philRepository.getTicketPrice(eventName, eventDate);
 	}

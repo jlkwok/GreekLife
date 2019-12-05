@@ -12,8 +12,8 @@ public class MemberOf {
 	@Column(name="sid")
 	private Integer sid;
 
-	@Column(name="chapter")
-	private String chapter;
+	@Column(name="chapterName")
+	private String chapterName;
 
 	/**
 	 * @return the sid
@@ -33,13 +33,13 @@ public class MemberOf {
 	 * @return the chapter
 	 */
 	public String getChapter() {
-		return chapter;
+		return chapterName;
 	}
 
 	/**
 	 * @param chapter the chapter to set
 	 */
-	public void setChapter(String chapter) {
-		this.chapter = chapter;
+	public void setChapterName(String chapterName) {
+		this.chapterName = chapterName;
 	};
 }

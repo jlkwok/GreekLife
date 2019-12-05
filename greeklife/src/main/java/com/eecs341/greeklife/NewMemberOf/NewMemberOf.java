@@ -2,12 +2,14 @@ package com.eecs341.greeklife.NewMemberOf;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="NewMemberOf")
 public class NewMemberOf {
 
+	@Id
 	@Column(name="sid")
 	private Integer sid;
 	
