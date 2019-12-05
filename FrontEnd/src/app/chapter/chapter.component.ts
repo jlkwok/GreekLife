@@ -68,15 +68,19 @@ export class ChapterComponent implements OnInit {
     switch (relationship) {
       case "Members": {
         this.chapterService.getMembers(chapterName).subscribe(response => alert(response));
+        break;
       }
       case "Philanthropy": {
         this.chapterService.getPhilanthropy(chapterName).subscribe(response => alert(response));
+        break;
       }
       case "House": {
         this.chapterService.getHouse(chapterName).subscribe(response => alert(response));
+        break;
       }
       case "Executive Board": {
         this.chapterService.getExec(chapterName).subscribe(response => alert(response));
+        break;
       }
     }
   }

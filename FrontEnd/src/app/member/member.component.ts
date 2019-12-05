@@ -74,14 +74,17 @@ export class MemberComponent implements OnInit {
     let value = (<HTMLSelectElement>document.getElementById('value')).value;
     switch(attribute) {
       case "Name": {
-        this.memberService.updateName(sid, value);
+        this.memberService.updateName(sid, value).subscribe(response => alert(response));
+        break;
       }
       case "Major": {
-        this.memberService.updateMajor(sid, value);
+        this.memberService.updateMajor(sid, value).subscribe(response => alert(response));
+        break;
       }
       case "GPA": {
         let gpa = parseInt(value);
-        this.memberService.updateGpa(sid, gpa);
+        this.memberService.updateGpa(sid, gpa).subscribe(response => alert(response));
+        break;
       }
     }
   }
