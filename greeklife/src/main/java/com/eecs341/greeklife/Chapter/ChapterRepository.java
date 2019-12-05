@@ -66,9 +66,9 @@ public interface ChapterRepository extends CrudRepository<Chapter, String> {
 	@Query("SELECT c FROM Chapter c WHERE (SELECT AVG(m.gpa) FROM ChapterMember m, MemberOf o WHERE o.chapterName=c.chapterName AND o.sid=m.sid)>?1")
 	public List<Chapter> getChaptersWithAverageGpa(Double gpa);
 	
-	@Query(value = "SELECT * from chapter c, chapter_member m WHERE NOT EXISTS "
-			+ "(SELECT o.sid FROM member_of o WHERE o.sid=m.sid AND o.chapter_name=c.chapter_name "
-			+ "AND o.sid NOT IN (SELECT l.sid FROM lives_in l, house_of h WHERE l.sid=m.sid AND l.address=h.address AND h.chapter_name=c.chapter_name));", 
+	@Query(value = "SELECT * FROM chapter c "
+			+ "WHERE NOT EXISTS (SELECT o.sid FROM member_of o, chapter_member m WHERE o.sid=m.sid AND o.chapter_name=c.chapter_name AND o.sid NOT IN "
+			+ "(SELECT l.sid FROM lives_in l, house_of h WHERE l.year=m.year AND l.sid=m.sid AND l.address=h.address AND h.chapter_name=c.chapter_name));", 
 			nativeQuery=true)
 	public List<Chapter> getChaptersWithAllMembersInHouse();
 	

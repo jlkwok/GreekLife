@@ -50,10 +50,22 @@ INSERT INTO greekLife.chapter_member (badge_number, gpa, join_date, major, name,
 INSERT INTO greekLife.member_of (chapter_name, sid) VALUES ('Alpha Gamma Delta', 5);
 INSERT INTO greekLife.serves_as (sid, position, term, chapter_name) VALUES (5, 'Vice President', '2018-2019', 'Alpha Gamma Delta');
 
-
 INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('2235 Murray Hill Rd', '1', 1);
 INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('2235 Murray Hill Rd', '1', 2);
-INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('2235 Murray Hill Rd', '1', 3);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('11428 Cedar Glen Parkway', '1', 3);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('2235 Murray Hill Rd', '2', 2);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('11428 Cedar Glen Parkway', '4', 3);
+
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('101 Carlton Rd', '3', 1);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('101 Carlton Rd', '3', 2);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('101 Carlton Rd', '3', 3);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('101 Carlton Rd', '5', 1);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('101 Carlton Rd', '5', 2);
+INSERT INTO greekLife.lives_in (address, sid, year) VALUES ('101 Carlton Rd', '5', 3);
+
+INSERT INTO greekLife.philanthropy (date, event_name, budget, cause, location, money_raised, partner, ticket_price, total_attendance) VALUES ('12-12-2019', 'Pasta Nachos', 1000, 'Hunger', 'SS', 2500, 'Habitat For Humanity', 10, 250);
+INSERT INTO greekLife.hosts (chapter_name, date, event_name) VALUES ('Sigma Nu', '12-12-2019', 'Pasta Nachos');
+INSERT INTO greekLife.hosts (chapter_name, date, event_name) VALUES ('Alpha Gamma Delta', '12-12-2019', 'Pasta Nachos');
 
 use greekLife;
-SELECT * from chapter c, chapter_member m WHERE NOT EXISTS (SELECT o.sid FROM member_of o WHERE o.sid=m.sid AND o.chapter_name=c.chapter_name AND o.sid NOT IN (SELECT l.sid FROM lives_in l, house_of h WHERE l.sid=m.sid AND l.address=h.address AND h.chapter_name=c.chapter_name));
+SELECT * FROM chapter c WHERE NOT EXISTS (SELECT o.sid FROM member_of o, chapter_member m WHERE o.sid=m.sid AND o.chapter_name=c.chapter_name AND o.sid NOT IN (SELECT l.sid FROM lives_in l, house_of h WHERE l.year=m.year AND l.sid=m.sid AND l.address=h.address AND h.chapter_name=c.chapter_name));
