@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ChapterMemberService } from '../shared/services/chapter-member.service';
 import { formatDate } from "@angular/common";
 import { Member } from '../shared/models/member';
-import { NewMemberOf } from '../shared/models/newMemberOf';
 import { MemberOf } from '../shared/models/memberOf';
 import { LivesIn } from '../shared/models/livesIn';
 import { LivesInId } from '../shared/models/livesInId';
@@ -24,7 +23,7 @@ export class MemberComponent implements OnInit {
   }
 
   attributeQuery() {
-    let attribute = (<HTMLSelectElement>document.getElementById('attribute')).value;
+    let attribute = (<HTMLSelectElement>document.getElementById('attribute1')).value;
     let sid = parseInt((<HTMLSelectElement>document.getElementById('sid1')).value);
     switch(attribute) {
       case "Name": {
@@ -65,6 +64,24 @@ export class MemberComponent implements OnInit {
       case "Executive Positions": {
         this.memberService.getExecPositions(sid).subscribe(positions => alert(positions));
         break;
+      }
+    }
+  }
+
+  updateQuery() {
+    let attribute = (<HTMLSelectElement>document.getElementById('attribute2')).value;
+    let sid = parseInt((<HTMLSelectElement>document.getElementById('sid3')).value);
+    let value = (<HTMLSelectElement>document.getElementById('value')).value;
+    switch(attribute) {
+      case "Name": {
+        this.memberService.updateName(sid, value);
+      }
+      case "Major": {
+        this.memberService.updateMajor(sid, value);
+      }
+      case "GPA": {
+        let gpa = parseInt(value);
+        this.memberService.updateGpa(sid, gpa);
       }
     }
   }

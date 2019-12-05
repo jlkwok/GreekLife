@@ -2,7 +2,7 @@
 <div class="row mx-2">
     <p>Get</p>
     <div class="form-group col-md-auto">
-        <select class="form-control form-control-sm" id="attribute">
+        <select class="form-control form-control-sm" id="attribute1">
             <option>Name</option>
             <option>Year</option>
             <option>Join Date</option>
@@ -177,19 +177,19 @@
 <div class="row mx-2">
     <p>Update</p>
     <div class="form-group col-md-auto">
-        <select class="form-control form-control-sm">
+        <select class="form-control form-control-sm" id="attribute2">
             <option>Name</option>
             <option>Major</option>
-            <option>Average GPA</option>
+            <option>GPA</option>
         </select>
     </div>
     <p>of Member with sid</p>
     <div class="col-md-auto">
-        <input type="number" class="form-control form-control-sm" required>
+        <input type="number" class="form-control form-control-sm" required id="sid3">
     </div>
     <p>to</p>    
     <div class="col-md-auto">
-        <input type="text" class="form-control form-control-sm" required>
+        <input type="text" class="form-control form-control-sm" required id="value">
     </div>
 </div>
-<button type="button" class="btn btn-outline-primary btn-sm mb-2">Submit Update Query</button>
+<button type="button" class="btn btn-outline-primary btn-sm mb-2" (click)="updateQuery()">Submit Update Query</button>

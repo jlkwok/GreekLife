@@ -55,6 +55,18 @@ export class ChapterMemberService {
     return this.http.get<Member[]>(`${this.chapterMemUrl}all`);
   }
 
+  updateName(sid: number, name: string): Observable<string> {
+    return this.http.get<string>(`${this.chapterMemUrl}updateName/${sid}/${name}`);
+  }
+
+  updateMajor(sid: number, major: string): Observable<string> {
+    return this.http.get<string>(`${this.chapterMemUrl}updateMajor/${sid}/${major}`);
+  }
+
+  updateGpa(sid: number, gpa: number): Observable<string> {
+    return this.http.get<string>(`${this.chapterMemUrl}updateGpa/${sid}/${gpa}`);
+  }
+
   addNewChapterMember(chapterMem: Member): Observable<string> {
     return this.http.post<string>(`${this.chapterMemUrl}add`, chapterMem, {responseType:'text' as 'json'});
   }
