@@ -56,6 +56,13 @@ export class PhilanthropyComponent implements OnInit {
     }
   }
 
+  getHosts() {
+    let name = (<HTMLSelectElement>document.getElementById('name2')).value;
+    let date = (<HTMLSelectElement>document.getElementById('date2')).value;
+    date = formatDate(date, this.format, this.locale);
+    this.philService.getHostChapters(name, date).subscribe(chapters => alert(chapters));
+  }
+
   addQuery() {
     let name = (<HTMLSelectElement>document.getElementById('name3')).value;
     let date = (<HTMLSelectElement>document.getElementById('date3')).value;
@@ -71,7 +78,7 @@ export class PhilanthropyComponent implements OnInit {
     this.philService.addNewPhilanthropy(philanthropy).subscribe(response => alert(response));
   }
 
-  executiveQuery() {
+  addNewHost() {
     let name = (<HTMLSelectElement>document.getElementById('name4')).value;
     let chapter = (<HTMLSelectElement>document.getElementById('chapter4')).value;
     let date = (<HTMLSelectElement>document.getElementById('date4')).value;

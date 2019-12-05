@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Philanthropy } from '../models/philanthropy';
 import { Hosts } from '../models/hosts';
 import { Injectable } from '@angular/core';
+import { Chapter } from '../models/chapter';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,10 @@ export class PhilanthropyService {
 
   getLocation(eventName: string, eventDate: string): Observable<string> {
     return this.http.get<string>(`${this.philUrl}location/${eventName}/${eventDate}`);
+  }
+
+  getHostChapters(eventName: string, eventDate: string): Observable<Chapter[]> {
+    return this.http.get<Chapter[]>(`${this.philUrl}hostChapters/${eventName}/${eventDate}`);
   }
 
   getAllPhilanthropies(): Observable<Philanthropy[]> {
