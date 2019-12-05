@@ -1,4 +1,4 @@
-package com.eecs341.greeklife.MemberOf;
+package com.eecs341.greeklife.NewMemberOf;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,12 +6,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="MemberOf")
-public class MemberOf {
+@Table(name="NewMemberOf")
+public class NewMemberOf {
+
 	@Id
 	@Column(name="sid")
 	private Integer sid;
-
+	
 	@Column(name="chapterName")
 	private String chapterName;
 
@@ -30,16 +31,16 @@ public class MemberOf {
 	}
 
 	/**
-	 * @return the chapter
+	 * @return the chapterName
 	 */
-	public String getChapter() {
+	public String getChapterName() {
 		return chapterName;
 	}
 
 	/**
-	 * @param chapter the chapter to set
+	 * @param chapterName the chapterName to set
 	 */
 	public void setChapterName(String chapterName) {
 		this.chapterName = chapterName;
-	};
+	}
 }

@@ -25,13 +25,13 @@ public class ChapterHouseController {
 
 
 	@PostMapping(path="/add")
-	public @ResponseBody String addNewChapter (@RequestBody ChapterHouse c) {
+	public @ResponseBody String addNewChapterHouse (@RequestBody ChapterHouse c) {
 		houseRepository.save(c);
 		return "Saved";
 	}
 
 	@GetMapping(path="/address/{chapterName}")
-	public @ResponseBody String getGoverningBody(@PathVariable("chapterName") String chapterName) {
+	public @ResponseBody String getAddress(@PathVariable("chapterName") String chapterName) {
 		return houseRepository.getAddress(chapterName);
 	}
 
@@ -46,7 +46,7 @@ public class ChapterHouseController {
 	}
 
 	@GetMapping(path="/mealPlanService/{chapterName}")
-	public @ResponseBody String getNationalDesignation(@PathVariable("chapterName") String chapterName) {
+	public @ResponseBody String getMealPlanService(@PathVariable("chapterName") String chapterName) {
 		return houseRepository.getMealPlanService(chapterName);
 	}
 
@@ -60,7 +60,7 @@ public class ChapterHouseController {
 		return houseRepository.findAll();
 	}
 	
-	@PostMapping(path="/addHouseOf") // Map ONLY POST Requests
+	@PostMapping(path="/addHouseOf ") // Map ONLY POST Requests
 	public @ResponseBody String addNewHouseOf (@RequestBody HouseOf h) {
 		houseOfRepository.save(h);
 		return "Saved";
