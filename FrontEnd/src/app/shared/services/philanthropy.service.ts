@@ -46,7 +46,7 @@ export class PhilanthropyService {
   }
 
   getHostChapters(eventName: string, eventDate: string): Observable<Chapter[]> {
-    return this.http.get<Chapter[]>(`${this.philUrl}hostChapters/${eventName}/${eventDate}`);
+    return this.http.get<string[]>(`${this.philUrl}hostChapters/${eventName}/${eventDate}`);
   }
 
   getAllPhilanthropies(): Observable<Philanthropy[]> {
