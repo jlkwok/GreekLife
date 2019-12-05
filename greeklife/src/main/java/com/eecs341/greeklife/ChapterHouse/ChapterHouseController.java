@@ -11,11 +11,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eecs341.greeklife.HouseOf.HouseOf;
+import com.eecs341.greeklife.HouseOf.HouseOfRepository;
+
 @Controller
 @RequestMapping(path="/chapterHouse")
 public class ChapterHouseController {
 	@Autowired
 	private ChapterHouseRepository houseRepository;
+	
+	@Autowired
+	private HouseOfRepository houseOfRepository;
+
 
 	@PostMapping(path="/add")
 	public @ResponseBody String addNewChapter (@RequestBody ChapterHouse c) {
@@ -52,4 +59,11 @@ public class ChapterHouseController {
 	public @ResponseBody List<ChapterHouse> getAllUsers() {
 		return houseRepository.findAll();
 	}
+	
+	@PostMapping(path="/addHouseOf") // Map ONLY POST Requests
+	public @ResponseBody String addNewHouseOf (@RequestBody HouseOf h) {
+		houseOfRepository.save(h);
+		return "Saved";
+	}
+
 }
