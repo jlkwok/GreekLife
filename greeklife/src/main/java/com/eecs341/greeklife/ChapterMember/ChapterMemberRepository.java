@@ -37,5 +37,4 @@ public interface ChapterMemberRepository extends CrudRepository<ChapterMember, I
 	 * Relation Queries: Gets chapter data based off of relationships with other tables/schema
 	 *****************************************************************************************/	
 	
-	
 }
