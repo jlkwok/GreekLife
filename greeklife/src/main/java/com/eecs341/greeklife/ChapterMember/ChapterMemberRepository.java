@@ -43,5 +43,5 @@ public interface ChapterMemberRepository extends CrudRepository<ChapterMember, I
 	public String getLivingLocation(Integer sid);
 	
 	@Query("SELECT s.id.position FROM ServesAs s WHERE s.id.sid=?1")
-	public List<ServesAs> getExecPositions(Integer sid);	
+	public List<String> getExecPositions(Integer sid);	
 }

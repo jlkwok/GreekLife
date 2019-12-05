@@ -77,7 +77,7 @@ public class PhilanthropyController {
 	}
 	
 	@GetMapping(path="/hostChapters/{eventName}/{eventDate}")
-	public @ResponseBody List<Chapter> getHostChapters(@PathVariable("eventName") String eventName, @PathVariable("eventDate") String eventDate) {
+	public @ResponseBody List<String> getHostChapters(@PathVariable("eventName") String eventName, @PathVariable("eventDate") String eventDate) {
 		return philRepository.getHostChapters(eventName, eventDate);
 	}
 }

@@ -57,7 +57,7 @@ public class ChapterHouseController {
 	}
 	
 	@GetMapping(path="/membersIn/{chapterName}")
-	public @ResponseBody List<ChapterMember> getMembersLivingIn(@PathVariable("chapterName") String chapterName) {
+	public @ResponseBody List<String> getMembersLivingIn(@PathVariable("chapterName") String chapterName) {
 		return houseRepository.getMembersLivingIn(chapterName);
 	}
 

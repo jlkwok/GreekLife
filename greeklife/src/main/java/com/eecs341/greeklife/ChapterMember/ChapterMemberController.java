@@ -107,12 +107,12 @@ public class ChapterMemberController {
 	}
 	
 	@GetMapping(path="/execPositions/{sid}")
-	public @ResponseBody List<ServesAs> getExecPositions(@PathVariable("sid") Integer sid) {
+	public @ResponseBody List<String> getExecPositions(@PathVariable("sid") Integer sid) {
 		return chapterMemberRepository.getExecPositions(sid);
 	}
 	
 	@GetMapping(path="updateName/{sid}/{updatedValue}")
-	public @ResponseBody String updateName(@PathVariable("chapterName") Integer sid, @PathVariable("updatedValue") String value) {
+	public @ResponseBody String updateName(@PathVariable("sid") Integer sid, @PathVariable("updatedValue") String value) {
 		ChapterMember c = chapterMemberRepository.findById(sid).get();
 		c.setName(value);
 		chapterMemberRepository.save(c);
@@ -120,7 +120,7 @@ public class ChapterMemberController {
 	}
 	
 	@GetMapping(path="updateMajor/{sid}/{updatedValue}")
-	public @ResponseBody String updateMajor(@PathVariable("chapterName") Integer sid, @PathVariable("updatedValue") String value) {
+	public @ResponseBody String updateMajor(@PathVariable("sid") Integer sid, @PathVariable("updatedValue") String value) {
 		ChapterMember c = chapterMemberRepository.findById(sid).get();
 		c.setMajor(value);
 		chapterMemberRepository.save(c);
@@ -128,7 +128,7 @@ public class ChapterMemberController {
 	}
 	
 	@GetMapping(path="updateGpa/{sid}/{updatedValue}")
-	public @ResponseBody String updateGpa(@PathVariable("chapterName") Integer sid, @PathVariable("updatedValue") Double value) {
+	public @ResponseBody String updateGpa(@PathVariable("sid") Integer sid, @PathVariable("updatedValue") Double value) {
 		ChapterMember c = chapterMemberRepository.findById(sid).get();
 		c.setGpa(value);
 		chapterMemberRepository.save(c);
