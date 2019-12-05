@@ -80,7 +80,7 @@ export class PhilanthropyComponent implements OnInit {
 
   addNewHost() {
     let name = (<HTMLSelectElement>document.getElementById('name4')).value;
-    let chapter = (<HTMLSelectElement>document.getElementById('chapter4')).value;
+    let chapter = (<HTMLSelectElement>document.getElementById('chapter')).value;
     let date = (<HTMLSelectElement>document.getElementById('date4')).value;
     date = formatDate(date, this.format, this.locale);
     let hostId: HostsId = new HostsId(name, date, chapter);
