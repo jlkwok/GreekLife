@@ -17,7 +17,7 @@ public interface ChapterHouseRepository extends CrudRepository<ChapterHouse, Str
 	/*********************************************************************
 	 * Basic Attribute queries: gets attributes of the given chapter house	
 	 *********************************************************************/
-	@Query("SELECT h.address FROM ChapterHouse h, HouseOf o WHERE o.chapterName=?1 AND o.address=h.address")
+	@Query("SELECT o.address FROM HouseOf o WHERE o.chapterName=?1")
 	public String getAddress(String chapterName);
 	
 	@Query("SELECT h.campusLocation FROM ChapterHouse h, HouseOf o WHERE o.chapterName=?1 AND o.address=h.address")

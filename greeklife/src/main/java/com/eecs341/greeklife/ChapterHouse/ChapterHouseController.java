@@ -73,4 +73,10 @@ public class ChapterHouseController {
 		houseOfRepository.save(h);
 		return "Saved";
 	}
+	
+	@GetMapping(path="/allHouseOf")
+	public @ResponseBody List<HouseOf> getAllHouseOf() {
+		return houseOfRepository.findAll();
+	}
+
 }
