@@ -54,6 +54,21 @@ export class MemberComponent implements OnInit {
     }
   }
 
+  relationshipQuery() {
+    let relationship = (<HTMLSelectElement>document.getElementById('relationship')).value;
+    let sid = parseInt((<HTMLSelectElement>document.getElementById('sid2')).value);
+    switch(relationship) {
+      case "Living Location": {
+        this.memberService.getLivingLocation(sid).subscribe(location => alert(location));
+        break;
+      }
+      case "Executive Positions": {
+        this.memberService.getExecPositions(sid).subscribe(positions => alert(positions));
+        break;
+      }
+    }
+  }
+
   getStanding(year: string): Standing {
     switch(year) {
       case "Freshman": {
@@ -91,7 +106,7 @@ export class MemberComponent implements OnInit {
     this.memberService.addMemberOf(memberOf).subscribe(response => alert(response));
   }
 
-  livingLocationQuery() {
+  setLivingLocationQuery() {
     let sid = parseInt((<HTMLSelectElement>document.getElementById('sid5')).value);
     let address = (<HTMLSelectElement>document.getElementById('address')).value;
     let academicYear = (<HTMLSelectElement>document.getElementById('academicYear1')).value;
