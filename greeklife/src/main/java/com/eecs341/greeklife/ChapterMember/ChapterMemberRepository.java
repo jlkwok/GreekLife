@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import com.eecs341.greeklife.ChapterHouse.ChapterHouse;
+import com.eecs341.greeklife.ServesAs.ServesAs;
+
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
@@ -36,9 +39,9 @@ public interface ChapterMemberRepository extends CrudRepository<ChapterMember, I
 	/*****************************************************************************************
 	 * Relation Queries: Gets chapter data based off of relationships with other tables/schema
 	 *****************************************************************************************/
-	@Query("SELECT l FROM ChapterMember m, LivesIn l WHERE l.sid=m.sid AND m.sid=?1")
-	public Double getLivingLocation(Integer sid);
+	@Query("SELECT l FROM ChapterMember m, LivesIn l WHERE l.id.sid=m.sid AND l.id.year=m.year AND m.sid=?1")
+	public ChapterHouse getLivingLocation(Integer sid);
 	
-	@Query("SELECT s.position FROM ServesAs s WHERE s.sid=?1")
-	public Double getExecPositions(Integer sid);	
+	@Query("SELECT s.id.position FROM ServesAs s WHERE s.id.sid=?1")
+	public List<ServesAs> getExecPositions(Integer sid);	
 }

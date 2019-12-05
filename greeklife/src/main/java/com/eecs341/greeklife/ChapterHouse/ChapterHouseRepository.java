@@ -35,7 +35,7 @@ public interface ChapterHouseRepository extends CrudRepository<ChapterHouse, Str
 	/************************************************************************************************
 	 * Relation Queries: Gets chapter house  data based off of relationships with other tables/schema
 	 ************************************************************************************************/	
-	@Query("SELECT m FROM ChapterMember m, LivesIn l WHERE l.chapterName=?1 AND l.sid=m.sid")
+	@Query("SELECT m FROM ChapterMember m, LivesIn l, HouseOf o WHERE o.chapterName=?1 AND l.address=o.address AND l.id.sid=m.sid AND l.id.year=m.year")
 	public List<ChapterMember> getMembersLivingIn(String chapterName);
 	
 	
