@@ -19,13 +19,13 @@ export class ChapterComponent implements OnInit {
   ngOnInit() {
   }
 
-  getGoverningBody(gb: string): GoverningBody {
+  getGoverningBody(gb: string): number {
     switch (gb) {
       case "Interfraternity Congress": {
-        return GoverningBody.INTERFRATERNITY_CONGRESS;
+        return 0;
       }
       case "Panhellenic Council": {
-        return GoverningBody.PANHELLENIC_COUNCIL;
+        return 1;
       }
     }
   }
@@ -88,7 +88,7 @@ export class ChapterComponent implements OnInit {
 
   updateQuery() {
     let chapterName = (<HTMLSelectElement>document.getElementById('chapter4')).value;
-    let dues = parseInt((<HTMLSelectElement>document.getElementById('dues')).value);
+    let dues = parseInt((<HTMLInputElement>document.getElementById('dues2')).value);
     this.chapterService.updateDues(chapterName, dues).subscribe(response => alert(response));
   }
 
@@ -96,12 +96,13 @@ export class ChapterComponent implements OnInit {
     let chapterName = (<HTMLSelectElement>document.getElementById('chapter3')).value;
     let governingBodyVal = (<HTMLSelectElement>document.getElementById('governingBody')).value;
     let governingBody = this.getGoverningBody(governingBodyVal);
+    alert(governingBody);
     let localFoundingDate = (<HTMLSelectElement>document.getElementById('locFoundingDate')).value;
     localFoundingDate = formatDate(localFoundingDate, this.format, this.locale);
     let natFoundingDate = (<HTMLSelectElement>document.getElementById('natFoundingDate')).value;
     natFoundingDate = formatDate(natFoundingDate, this.format, this.locale);
     let natDesignation = parseInt((<HTMLSelectElement>document.getElementById('natDesignation')).value);
-    let dues = parseInt((<HTMLSelectElement>document.getElementById('dues')).value);
+    let dues = parseInt((<HTMLSelectElement>document.getElementById('dues1')).value);
     let chapter: Chapter = new Chapter(chapterName, governingBody, localFoundingDate, natFoundingDate, natDesignation, dues);
     this.chapterService.addNewChapter(chapter).subscribe(response => alert(response));
   }
