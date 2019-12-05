@@ -19,7 +19,7 @@ export class ChapterMemberService {
   constructor(private http: HttpClient) { }
 
   getName(sid: number): Observable<string> {
-    return this.http.get<string>(`${this.chapterMemUrl}name/${sid}`);
+    return this.http.get(`${this.chapterMemUrl}name/${sid}`, {responseType: 'text'});
   }
 
   getYear(sid: number): Observable<Standing> {
@@ -27,7 +27,7 @@ export class ChapterMemberService {
   }
 
   getJoinDate(sid: number): Observable<string> {
-    return this.http.get<string>(`${this.chapterMemUrl}joinDate/${sid}`);
+    return this.http.get(`${this.chapterMemUrl}joinDate/${sid}`, {responseType: 'text'});
   }
 
   getBadgeNumber(sid: number): Observable<number> {
@@ -35,7 +35,7 @@ export class ChapterMemberService {
   }
 
   getMajor(sid: number): Observable<string> {
-    return this.http.get<string>(`${this.chapterMemUrl}major/${sid}`);
+    return this.http.get(`${this.chapterMemUrl}major/${sid}`, {responseType: 'text'});
   }
 
   getGPA(sid: number): Observable<number> {
@@ -43,7 +43,7 @@ export class ChapterMemberService {
   }
 
   getLivingLocation(sid: number): Observable<string> {
-    return this.http.get<string>(`${this.chapterMemUrl}livingLocation/${sid}`);
+    return this.http.get(`${this.chapterMemUrl}livingLocation/${sid}`, {responseType: 'text'});
   }
 
   getExecPositions(sid: number): Observable<string[]> {
@@ -55,15 +55,15 @@ export class ChapterMemberService {
   }
 
   updateName(sid: number, name: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterMemUrl}updateName/${sid}/${name}`);
+    return this.http.get(`${this.chapterMemUrl}updateName/${sid}/${name}`, {responseType: 'text'});
   }
 
   updateMajor(sid: number, major: string): Observable<string> {
-    return this.http.get<string>(`${this.chapterMemUrl}updateMajor/${sid}/${major}`);
+    return this.http.get(`${this.chapterMemUrl}updateMajor/${sid}/${major}`, {responseType: 'text'});
   }
 
   updateGpa(sid: number, gpa: number): Observable<string> {
-    return this.http.get<string>(`${this.chapterMemUrl}updateGpa/${sid}/${gpa}`);
+    return this.http.get(`${this.chapterMemUrl}updateGpa/${sid}/${gpa}`, {responseType: 'text'});
   }
 
   addNewChapterMember(chapterMem: Member): Observable<string> {

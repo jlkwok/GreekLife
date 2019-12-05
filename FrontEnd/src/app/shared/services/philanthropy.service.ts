@@ -18,11 +18,11 @@ export class PhilanthropyService {
   constructor(private http: HttpClient) { }
 
   getCause(eventName: string, eventDate: string): Observable<string> {
-    return this.http.get<string>(`${this.philUrl}cause/${eventName}/${eventDate}`);
+    return this.http.get(`${this.philUrl}cause/${eventName}/${eventDate}`, {responseType: 'text'});
   }
 
   getPartner(eventName: string, eventDate: string): Observable<string> {
-    return this.http.get<string>(`${this.philUrl}partner/${eventName}/${eventDate}`);
+    return this.http.get(`${this.philUrl}partner/${eventName}/${eventDate}`, {responseType: 'text'});
   }
 
   getMoneyRaised(eventName: string, eventDate: string): Observable<number> {
@@ -42,7 +42,7 @@ export class PhilanthropyService {
   }
 
   getLocation(eventName: string, eventDate: string): Observable<string> {
-    return this.http.get<string>(`${this.philUrl}location/${eventName}/${eventDate}`);
+    return this.http.get(`${this.philUrl}location/${eventName}/${eventDate}`, {responseType: 'text'});
   }
 
   getHostChapters(eventName: string, eventDate: string): Observable<string[]> {

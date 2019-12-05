@@ -18,11 +18,11 @@ export class HouseService {
   constructor(private http: HttpClient) { }
 
   getAddress(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.houseUrl}address/${chapter}`);
+    return this.http.get(`${this.houseUrl}address/${chapter}`, {responseType: 'text'});
   }
 
   getCampusLocation(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.houseUrl}campusLocation/${chapter}`);
+    return this.http.get(`${this.houseUrl}campusLocation/${chapter}`, {responseType: 'text'});
   }
 
   getMaxOccupancy(chapter: string): Observable<number> {
@@ -30,7 +30,7 @@ export class HouseService {
   }
 
   getMealPlanService(chapter: string): Observable<string> {
-    return this.http.get<string>(`${this.houseUrl}mealPlanService/${chapter}`);
+    return this.http.get(`${this.houseUrl}mealPlanService/${chapter}`, {responseType: 'text'});
   }
 
   isAvailableInSummer(chapter: string): Observable<boolean> {
